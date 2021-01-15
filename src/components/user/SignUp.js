@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-// import SignUp from './components/user/SignUp';
-// import SignIn from './components/user/SignIn';
 
-export class App extends Component {
+export class SignUp extends Component {
   //this will be a class component
 
   constructor() {
@@ -119,4 +117,4 @@ export class App extends Component {
   }
 }
 
-export default App;
+export default SignUp;
