@@ -1,119 +1,13 @@
+import { type } from 'os';
 import React, { Component } from 'react';
-// import SignUp from './components/user/SignUp';
-// import SignIn from './components/user/SignIn';
+import Body from './components/layout/Body';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export class App extends Component {
-  //this will be a class component
-
-  constructor() {
-    super();
-    this.state = {
-      email: null,
-      password: null,
-      username: null,
-      phonenumber: null,
-      restaurantowner: false,
-    };
-    this.state.login = false;
-    this.state.admin = false;
-  }
-
-  componentDidMount() {
-    this.tokenFinder(); //get the token & find out if a user is an admin
-  }
-  tokenFinder() {
-    const token = JSON.parse(localStorage.getItem('token'));
-    if (token && token.login && token.admin === true) {
-      this.setState({ login: true, admin: true });
-    } else if (token && token.login) {
-      this.setState({ login: true });
-    }
-  }
-
-  async Register() {
-    try {
-      const input = this.state;
-      fetch('http://localhost:2000/user/signup', {
-        method: 'POST',
-        headers: new Headers({
-          'Content-Type': 'application/json',
-        }),
-        body: JSON.stringify(input),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          console.log(data);
-          localStorage.setItem(
-            'token',
-            JSON.stringify({
-              login: true,
-              token: data.sessionToken,
-              admin: data.user.restaurantowner,
-            })
-          );
-        });
-    } catch (error) {
-      console.log('error', error);
-    }
-  }
-
   render() {
     return (
       <div>
-        <h1>Register in react class components</h1>
-        <div>
-          <input
-            placeholder="email"
-            type="text"
-            value={this.state.email}
-            name="email"
-            onChange={(data) => {
-              this.setState({ email: data.target.value });
-            }}
-          />
-          <input
-            placeholder="username"
-            type="text"
-            value={this.state.username}
-            name="username"
-            onChange={(data) => {
-              this.setState({ username: data.target.value || '' });
-            }}
-          />
-          <input
-            placeholder="password"
-            type="password"
-            value={this.state.password}
-            name="password"
-            onChange={(data) => {
-              this.setState({ password: data.target.value || '' });
-            }}
-          />
-          <input
-            placeholder="Phone Number"
-            type="number"
-            value={this.state.phonenumber}
-            name="phonenumber"
-            onChange={(data) => {
-              this.setState({ phonenumber: data.target.value || '' });
-            }}
-          />
-          <p>Please select if you would like to setup a busines page:</p>
-          <input
-            type="checkbox"
-            name="restaurantowner"
-            onClick={() => {
-              this.setState({ restaurantowner: true });
-            }}
-          />
-          <button
-            onClick={() => {
-              this.Register();
-            }}
-          >
-            Submit Data
-          </button>
-        </div>
+        <Body />
       </div>
     );
   }

@@ -5,15 +5,8 @@ export class SignUp extends Component {
 
   constructor() {
     super();
-    this.state = {
-      email: null,
-      password: null,
-      username: null,
-      phonenumber: null,
-      restaurantowner: false,
-    };
-    this.state.login = false;
-    this.state.admin = false;
+    // this.state.login = false;
+    // this.state.admin = false;
   }
 
   componentDidMount() {
@@ -28,9 +21,20 @@ export class SignUp extends Component {
     }
   }
 
-  async Register() {
+  register = (e) => {
+    e.preventDefault();
+    console.log('works');
+
+    const input = {
+      email: this.email,
+      password: this.password,
+      username: this.username,
+      phonenumber: this.phonenumber,
+      restaurantowner: this.restaurantowner,
+    };
+
     try {
-      const input = this.state;
+      // const input = this.state;
       fetch('http://localhost:2000/user/signup', {
         method: 'POST',
         headers: new Headers({
@@ -53,65 +57,63 @@ export class SignUp extends Component {
     } catch (error) {
       console.log('error', error);
     }
-  }
+  };
 
   render() {
     return (
       <div>
         <h1>Register in react class components</h1>
-        <div>
+        <form onSubmit={this.register}>
           <input
             placeholder="email"
             type="text"
-            value={this.state.email}
+            // value={this.state.email}
             name="email"
-            onChange={(data) => {
-              this.setState({ email: data.target.value });
-            }}
+            // onChange={(data) => {
+            //   this.setState({ email: data.target.value });
+            // }}
+            onChange={(e) => (this.email = e.target.value)}
           />
           <input
             placeholder="username"
             type="text"
-            value={this.state.username}
+            // value={this.state.username}
             name="username"
-            onChange={(data) => {
-              this.setState({ username: data.target.value || '' });
-            }}
+            // onChange={(data) => {
+            //   this.setState({ username: data.target.value || '' });
+            // }}
+            onChange={(e) => (this.username = e.target.value)}
           />
           <input
             placeholder="password"
             type="password"
-            value={this.state.password}
             name="password"
-            onChange={(data) => {
-              this.setState({ password: data.target.value || '' });
-            }}
+            // onChange={(data) => {
+            //   this.setState({ password: data.target.value || '' });
+            // }}
+            onChange={(e) => (this.password = e.target.value)}
           />
           <input
             placeholder="Phone Number"
             type="number"
-            value={this.state.phonenumber}
+            // value={this.state.phonenumber}
             name="phonenumber"
-            onChange={(data) => {
-              this.setState({ phonenumber: data.target.value || '' });
-            }}
+            // onChange={(data) => {
+            //   this.setState({ phonenumber: data.target.value || '' });
+            // }}
+            onChange={(e) => (this.phonenumber = e.target.value)}
           />
           <p>Please select if you would like to setup a busines page:</p>
           <input
             type="checkbox"
             name="restaurantowner"
-            onClick={() => {
-              this.setState({ restaurantowner: true });
-            }}
+            // onClick={() => {
+            //   this.setState({ restaurantowner: true });
+            // }}
+            onClick={(e) => (this.restaurantowner = true)}
           />
-          <button
-            onClick={() => {
-              this.Register();
-            }}
-          >
-            Submit Data
-          </button>
-        </div>
+          <button type="submit"> Submit</button>
+        </form>
       </div>
     );
   }

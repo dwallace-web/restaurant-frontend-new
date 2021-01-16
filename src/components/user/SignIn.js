@@ -5,15 +5,18 @@ export class SignIn extends Component {
 
   constructor() {
     super();
-    this.state = {
-      email: null,
-      password: null,
-    };
   }
 
-  async SignIn() {
+  signIn = (e) => {
     try {
-      const input = this.state;
+      e.preventDefault();
+      console.log('works');
+
+      const input = {
+        email: this.email,
+        password: this.password,
+      };
+
       fetch('http://localhost:2000/user/signin', {
         method: 'POST',
         headers: new Headers({
@@ -29,45 +32,41 @@ export class SignIn extends Component {
             JSON.stringify({
               login: true,
               token: data.sessionToken,
+              admin: data.user.restaurantowner,
             })
           );
         });
     } catch (error) {
       console.log('error', error);
     }
-  }
+  };
 
   render() {
     return (
       <div>
         <h1>Sign In with React!</h1>
-        <div>
+        <form onSubmit={this.signIn}>
           <input
+            placeholder="email"
             type="text"
-            value={this.state.email}
+            // value={this.state.email}
             name="email"
-            onChange={(data) => {
-              this.setState({ email: data.target.value });
-            }}
-            placeholder="Email"
+            // onChange={(data) => {
+            //   this.setState({ email: data.target.value });
+            // }}
+            onChange={(e) => (this.email = e.target.value)}
           />
           <input
+            placeholder="password"
             type="password"
-            value={this.state.password}
             name="password"
-            onChange={(data) => {
-              this.setState({ password: data.target.value });
-            }}
-            placeholder="Password"
+            // onChange={(data) => {
+            //   this.setState({ password: data.target.value || '' });
+            // }}
+            onChange={(e) => (this.password = e.target.value)}
           />
-          <button
-            onClick={() => {
-              this.SignIn();
-            }}
-          >
-            Sign In
-          </button>
-        </div>
+          <button type="submit"> Submit</button>
+        </form>
       </div>
     );
   }
