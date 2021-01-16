@@ -2,6 +2,16 @@ import React, { Component } from 'react';
 import CreateRestaurant from '../restaurants/CreateRestaurant';
 
 export class AdminPanel extends Component {
+  componentDidMount() {
+    this.getUserRestaurants();
+  }
+
+  getUserRestaurants = () => {
+    console.log('getting started');
+
+    console.log('getting finished!');
+  };
+
   render() {
     return (
       <div>

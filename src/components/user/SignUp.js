@@ -5,8 +5,7 @@ export class SignUp extends Component {
 
   constructor() {
     super();
-    // this.state.login = false;
-    // this.state.admin = false;
+    this.restaurantowner = false;
   }
 
   componentDidMount() {
