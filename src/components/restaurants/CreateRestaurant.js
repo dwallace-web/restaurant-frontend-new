@@ -3,16 +3,22 @@ import React, { Component } from 'react';
 export class CreateRestaurant extends Component {
   constructor() {
     super();
+    this.token = 'null';
   }
 
   componentDidMount() {
     this.tokenFinder(); //get the token & find out if a user is an admin
   }
+
   tokenFinder() {
     const token = JSON.parse(localStorage.getItem('token'));
 
     if (token && token.login && token.admin === true) {
-      this.setState({ login: true, admin: true });
+      this.setState({
+        login: true,
+        admin: true,
+        token: JSON.parse(localStorage.getItem('token')).token,
+      });
     } else if (token && token.login) {
       this.setState({ login: true });
     } else {
@@ -40,7 +46,7 @@ export class CreateRestaurant extends Component {
         headers: new Headers({
           'Content-Type': 'application/json',
           Authorization:
-            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDIsImlhdCI6MTYxMDgyMjU3NSwiZXhwIjoxNjEwODY1Nzc1fQ.TGj6etPNWmbiS869YpSo4vX8ofTS5tytObA3-OjpeYI',
+            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDgsImlhdCI6MTYxMDkxNzkzNSwiZXhwIjoxNjEwOTYxMTM1fQ.HWrp5VeWjvRPkY-VbnOssxLouoEhH6VFMY-8hxq3CFM',
         }),
         body: JSON.stringify(input),
       })
