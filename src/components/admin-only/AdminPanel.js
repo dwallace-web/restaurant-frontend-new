@@ -1,23 +1,37 @@
 import React, { Component } from 'react';
-import CreateRestaurant from '../restaurants/CreateRestaurant';
+import CreateRestaurant from './CreateRestaurant';
+import ViewRestaurants from './ViewRestaurants';
 
 export class AdminPanel extends Component {
-  componentDidMount() {
-    this.getUserRestaurants();
+  constructor() {
+    super();
+    this.token = 'null';
   }
 
-  getUserRestaurants = () => {
-    console.log('getting started');
+  componentDidMount() {
+    this.tokenFinder(); //get the token & find out if a user is an admin
+  }
 
-    console.log('getting finished!');
-  };
+  tokenFinder() {
+    const token = JSON.parse(localStorage.getItem('token'));
 
+    if (token && token.login && token.admin === true) {
+      this.setState({
+        login: true,
+        admin: true,
+        token: JSON.parse(localStorage.getItem('token')).token,
+      });
+    } else if (token && token.login) {
+      this.setState({ login: true });
+    } else {
+      this.setState({ login: false, admin: false });
+    }
+  }
   render() {
     return (
       <div>
         <h1>Admin Only</h1>
-        <h2>Manage Restaurants</h2>
-        <h3>Create Restaurant Form</h3>
+        <ViewRestaurants />
         <CreateRestaurant />
       </div>
     );

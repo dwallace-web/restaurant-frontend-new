@@ -45,8 +45,7 @@ export class CreateRestaurant extends Component {
         method: 'POST',
         headers: new Headers({
           'Content-Type': 'application/json',
-          Authorization:
-            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDgsImlhdCI6MTYxMDkxNzkzNSwiZXhwIjoxNjEwOTYxMTM1fQ.HWrp5VeWjvRPkY-VbnOssxLouoEhH6VFMY-8hxq3CFM',
+          Authorization: this.state.token,
         }),
         body: JSON.stringify(input),
       })

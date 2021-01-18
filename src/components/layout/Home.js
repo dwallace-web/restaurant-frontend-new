@@ -16,10 +16,16 @@ export class Home extends Component {
   componentDidMount() {
     this.tokenFinder(); //get the token & find out if a user is an admin
   }
+
   tokenFinder() {
     const token = JSON.parse(localStorage.getItem('token'));
+
     if (token && token.login && token.admin === true) {
-      this.setState({ login: true, admin: true });
+      this.setState({
+        login: true,
+        admin: true,
+        token: JSON.parse(localStorage.getItem('token')).token,
+      });
     } else if (token && token.login) {
       this.setState({ login: true });
     } else {
