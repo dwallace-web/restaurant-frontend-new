@@ -8,15 +8,7 @@ export class RestaurantCard extends Component {
   componentDidMount(props) {}
 
   render() {
-    return (
-      <div>
-        {/* {this.props.restaurantdata} */}
-        {/* <div id="locations">Your Locations:</div> */}
-        {this.props.restaurantdata.map((restaurant, index) => {
-          console.log(index, restaurant);
-        })}
-      </div>
-    );
+    return <div></div>;
   }
 }
 
