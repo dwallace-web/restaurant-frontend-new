@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
+import RestaurantCard from './RestaurantCard';
 
 export class ViewRestaurants extends Component {
-  constructor() {
-    super();
-    this.token = 'null';
+  constructor(props) {
+    super(props);
+    this.state = {
+      restaurantdata: null,
+    };
   }
   componentDidMount() {
     // this.tokenFinder(); //get the token & find out if a user is an admin
@@ -14,31 +17,43 @@ export class ViewRestaurants extends Component {
     fetch('http://localhost:2000/restaurant/user', {
       headers: new Headers({
         'Content-Type': 'application/json',
-        Authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NTAsImlhdCI6MTYxMDkzMTMzNCwiZXhwIjoxNjEwOTc0NTM0fQ.ZkZ8DjNt3lru1WaxyeAYc0BWfL0veyi8DVJbZDPcL6o',
+        Authorization: this.props.token,
       }),
       method: 'GET',
     })
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        data.map((restaurant, index) => {
-          console.log(index, restaurant);
+        this.setState({ restaurantdata: data });
+        // data.map((restaurant, index) => {
+        //   // console.log(index, restaurant);
 
-          const rest = document.querySelector('.restaurantview');
-          const card = document.createElement('div');
-          const cardinfo = document.createElement('p');
+        //   const rest = document.querySelector('.restaurantview');
+        //   const card = document.createElement('div');
+        //   const cardTitle = document.createElement('h5');
+        //   const cardNumber = document.createElement('p');
+        //   const cardAddress = document.createElement('p');
+        //   const buttonEdit = document.createElement('Button');
+        //   const buttonDelete = document.createElement('Button');
 
-          console.log(restaurant.name);
-          console.log(restaurant.address);
-          console.log(restaurant.phonenumber);
+        //   cardTitle.innerText = restaurant.name;
+        //   cardNumber.innerText = restaurant.phonenumber;
+        //   cardAddress.innerText = restaurant.address;
 
-          cardinfo.innerText = restaurant.name;
+        //   buttonEdit.innerText = 'Edit';
+        //   buttonDelete.innerText = 'Delete';
 
-          rest.appendChild(card);
+        //   rest.appendChild(card);
 
-          return card;
-        });
+        //   card.appendChild(cardTitle);
+        //   card.appendChild(cardNumber);
+        //   card.appendChild(cardAddress);
+
+        //   card.appendChild(buttonEdit);
+        //   card.appendChild(buttonDelete);
+
+        //   return card;
+        // });
       })
       .catch((error) => {
         console.log('error--->', error);
@@ -51,6 +66,11 @@ export class ViewRestaurants extends Component {
     return (
       <div>
         <h2>My Restaurants</h2>
+        <RestaurantCard
+          token={this.props.token}
+          login={this.props.login}
+          restaurantdata={this.state.restaurantdata}
+        />
         <div className="restaurantview"></div>
       </div>
     );

@@ -10,6 +10,7 @@ export class Home extends Component {
     this.state = {
       login: false,
       admin: false,
+      token: JSON.parse(localStorage.getItem('token'))?.token || '',
     };
   }
 
@@ -36,11 +37,11 @@ export class Home extends Component {
   render() {
     return (
       <div>
-        <h4>User Content</h4>
+        <h4>Restaurant App </h4>
         {this.state.login === true && this.state.admin === true ? (
           <div>
             Welcome back!
-            <AdminPanel />
+            <AdminPanel login={this.state.login} token={this.state.token} />
           </div>
         ) : (
           <div>Sign Up or Login to view </div>

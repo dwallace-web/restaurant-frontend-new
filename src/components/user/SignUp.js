@@ -8,18 +8,6 @@ export class SignUp extends Component {
     this.restaurantowner = false;
   }
 
-  componentDidMount() {
-    this.tokenFinder(); //get the token & find out if a user is an admin
-  }
-  tokenFinder() {
-    const token = JSON.parse(localStorage.getItem('token'));
-    if (token && token.login && token.admin === true) {
-      this.setState({ login: true, admin: true });
-    } else if (token && token.login) {
-      this.setState({ login: true });
-    }
-  }
-
   register = (e) => {
     e.preventDefault();
     console.log('works');
