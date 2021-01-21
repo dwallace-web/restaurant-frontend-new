@@ -40,7 +40,6 @@ export class CreateRestaurant extends Component {
   render() {
     return (
       <div>
-        Create Restaurant Form Goes Here
         <h4>Create Restaurant </h4>
         <form onSubmit={this.createRestaurant}>
           <input

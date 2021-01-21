@@ -11,21 +11,12 @@ export class ViewRestaurants extends Component {
 
     return this.props.data.map((restaurant) => (
       <RestaurantCard
+        token={this.props.token}
         key={restaurant.id}
         restaurant={restaurant}
-        deleteRestaurant={this.deleteRestaurant}
+        deleteRestaurant={this.props.deleteRestaurant}
       />
     ));
-    return (
-      <div>
-        <h2>My Restaurants</h2>
-        <div className="restaurantview"> </div>
-        <RestaurantCard
-          data={this.props.data}
-          deleteRestaurant={this.props.deleteRestaurant}
-        />
-      </div>
-    );
   }
 }
 

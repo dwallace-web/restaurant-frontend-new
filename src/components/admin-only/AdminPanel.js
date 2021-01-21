@@ -33,12 +33,11 @@ export class AdminPanel extends Component {
     console.log('fetch finished!');
   }
 
-  deleteRestaurant = (e) => {
-    e.preventDefault();
-    console.log('works');
+  deleteRestaurant = (id) => {
+    // e.preventDefault();
+    console.log('works', id);
     try {
-      // const input = this.state;
-      fetch('http://localhost:2000/restaurant/', {
+      fetch(`http://localhost:2000/restaurant/${id}`, {
         method: 'DELETE',
         headers: new Headers({
           'Content-Type': 'application/json',
@@ -59,6 +58,7 @@ export class AdminPanel extends Component {
       <div>
         <h1>Admin Only</h1>
         <CreateRestaurant login={this.props.login} token={this.props.token} />
+        <br />
         <ViewRestaurants
           login={this.props.login}
           token={this.props.token}

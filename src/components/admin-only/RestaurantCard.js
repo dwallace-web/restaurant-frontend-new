@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
-import { Button } from 'reactstrap';
+import { Collapse, Button, CardBody, Card } from 'reactstrap';
 
 export class RestaurantCard extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      isOpen: false,
+    };
   }
+
+  toggle = () => {
+    this.setState({ isOpen: true });
+  };
 
   render() {
     console.log('card', this.props.restaurant);
@@ -25,7 +33,10 @@ export class RestaurantCard extends Component {
         <p className="restaurantphone">Phone Number: {phonenumber}</p>
         <p className="restaurantcat">Category: {category}</p>
         <div className="restaurantbuttons">
-          <Button>Edit</Button> <Button>Delete</Button>
+          <Button>Edit</Button>{' '}
+          <Button onClick={this.props.deleteRestaurant.bind(this, id)}>
+            Delete
+          </Button>
         </div>
       </div>
     );
