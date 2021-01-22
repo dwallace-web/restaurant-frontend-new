@@ -21,7 +21,7 @@ export class CustomerCard extends Component {
       .catch((error) => {
         console.log('error--->', error);
       });
-    console.log('comment fetch finished!');
+    // console.log('comment fetch finished!');
   }
 
   createComment = (e) => {
@@ -47,8 +47,8 @@ export class CustomerCard extends Component {
         body: JSON.stringify(input),
       })
         .then((response) => response.json())
-        .then((data) => {
-          console.log(data);
+        .then((comment) => {
+          console.log('comment---> ', comment);
         });
     } catch (error) {
       console.log('error', error);
@@ -72,6 +72,7 @@ export class CustomerCard extends Component {
         <p className="restaurantphone">Phone Number: {phonenumber}</p>
         <p className="restaurantcat">Category: {category}</p>
         <div className="restaurantcomments">
+          {/* {this.state.comment.data.map((comment) => console.log(comment))} */}
           {this.props.login === true ? (
             <form onSubmit={this.createComment}>
               <input
