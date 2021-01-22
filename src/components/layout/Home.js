@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import AdminPanel from '../admin-only/AdminPanel';
+import Customers from '../customer-view/Customers';
 
 export class Home extends Component {
   constructor() {
@@ -38,13 +39,16 @@ export class Home extends Component {
     return (
       <div>
         <h4>Restaurant App </h4>
-        {this.state.login === true && this.state.admin === true ? (
+        {this.state.admin === true ? (
           <div>
             Welcome back!
             <AdminPanel login={this.state.login} token={this.state.token} />
+            <br />
           </div>
         ) : (
-          <div>Sign Up or Login to view </div>
+          <div>
+            <Customers login={this.state.login} token={this.state.token} />
+          </div>
         )}
       </div>
     );

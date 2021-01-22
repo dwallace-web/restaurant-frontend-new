@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Collapse, Button } from 'reactstrap';
-import editRestaurant from './editRestaurant';
 
 export class RestaurantCard extends Component {
   constructor(props) {
@@ -9,6 +8,28 @@ export class RestaurantCard extends Component {
     this.state = {
       isOpen: false,
     };
+  }
+
+  componentDidMount() {
+    // this.tokenFinder(); //get the token & find out if a user is an admin
+    // this.getUserRestaurants();
+    // console.log('fetch started');
+    fetch(`http://localhost:2000/comment/${this.props.restaurant.id}`, {
+      headers: new Headers({
+        'Content-Type': 'application/json',
+        Authorization: this.props.token,
+      }),
+      method: 'GET',
+    })
+      .then((response) => response.json())
+      .then((comment) => {
+        // console.log(restaurantdata);
+        this.setState({ comment: comment });
+      })
+      .catch((error) => {
+        console.log('error--->', error);
+      });
+    console.log('fetch finished!');
   }
 
   toggle = () => {
