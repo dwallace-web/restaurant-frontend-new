@@ -7,7 +7,7 @@ export class CustomerRestaurants extends Component {
   }
 
   render() {
-    console.log('customers only', this.props.data);
+    // console.log('customers only', this.props.data);
 
     return this.props.data.map((restaurant) => (
       <CustomerCard

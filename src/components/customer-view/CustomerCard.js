@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
+import CustomerComments from './CustomerComments';
 
 export class CustomerCard extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      comment: [],
+    };
   }
 
   componentDidMount() {
@@ -16,7 +21,7 @@ export class CustomerCard extends Component {
       .then((response) => response.json())
       .then((comment) => {
         // console.log(restaurantdata);
-        this.setState({ comment: comment });
+        this.setState({ comment: comment.data });
       })
       .catch((error) => {
         console.log('error--->', error);
@@ -72,7 +77,15 @@ export class CustomerCard extends Component {
         <p className="restaurantphone">Phone Number: {phonenumber}</p>
         <p className="restaurantcat">Category: {category}</p>
         <div className="restaurantcomments">
-          {/* {this.state.comment.data.map((comment) => console.log(comment))} */}
+          {this.state.comment === '' ? (
+            <br />
+          ) : (
+            <CustomerComments
+              token={this.props.token}
+              comment={this.state.comment}
+            />
+          )}
+
           {this.props.login === true ? (
             <form onSubmit={this.createComment}>
               <input

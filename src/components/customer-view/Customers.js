@@ -38,7 +38,7 @@ export class Customers extends Component {
           <br />
         ) : (
           <div className="notice">
-            <p>Sign In or Sign Up to create, view, edit or delete comments!</p>
+            <p>Sign In or Sign Up to create, edit or delete comments!</p>
           </div>
         )}
 
