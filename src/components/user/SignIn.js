@@ -8,37 +8,68 @@ export class SignIn extends Component {
   }
 
   signIn = (e) => {
-    try {
-      e.preventDefault();
-      console.log('works');
+    e.preventDefault();
+    console.log('works');
 
-      const input = {
-        email: this.email,
-        password: this.password,
-      };
+    const input = {
+      email: this.email,
+      password: this.password,
+    };
 
-      fetch('http://localhost:2000/user/signin', {
-        method: 'POST',
-        headers: new Headers({
-          'Content-Type': 'application/json',
-        }),
-        body: JSON.stringify(input),
+    fetch('http://localhost:2000/user/signin', {
+      method: 'POST',
+      headers: new Headers({
+        'Content-Type': 'application/json',
+      }),
+      body: JSON.stringify(input),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // console.log(data);
+        localStorage.setItem(
+          'token',
+          JSON.stringify({
+            login: true,
+            token: data.sessionToken,
+            admin: data.user.restaurantowner,
+          })
+        );
       })
-        .then((response) => response.json())
-        .then((data) => {
-          console.log(data);
-          localStorage.setItem(
-            'token',
-            JSON.stringify({
-              login: true,
-              token: data.sessionToken,
-              admin: data.user.restaurantowner,
-            })
-          );
-        });
-    } catch (error) {
-      console.log('error', error);
-    }
+      .catch((error) => {
+        alert(error);
+      });
+
+    // try {
+    //   e.preventDefault();
+    //   console.log('works');
+
+    //   const input = {
+    //     email: this.email,
+    //     password: this.password,
+    //   };
+
+    //   fetch('http://localhost:2000/user/signin', {
+    //     method: 'POST',
+    //     headers: new Headers({
+    //       'Content-Type': 'application/json',
+    //     }),
+    //     body: JSON.stringify(input),
+    //   })
+    //     .then((response) => response.json())
+    //     .then((data) => {
+    //       console.log(data);
+    //       localStorage.setItem(
+    //         'token',
+    //         JSON.stringify({
+    //           login: true,
+    //           token: data.sessionToken,
+    //           admin: data.user.restaurantowner,
+    //         })
+    //       );
+    //     });
+    // } catch (error) {
+    //   console.log('error', error);
+    // }
   };
 
   render() {
@@ -67,6 +98,7 @@ export class SignIn extends Component {
           />
           <button type="submit"> Submit</button>
         </form>
+        <div className="error"></div>
       </div>
     );
   }
