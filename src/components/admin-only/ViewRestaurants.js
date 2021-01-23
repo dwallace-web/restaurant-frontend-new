@@ -7,13 +7,14 @@ export class ViewRestaurants extends Component {
   }
 
   render() {
-    console.log(this.props.data);
+    // console.log(this.props.data);
 
     return this.props.data.map((restaurant) => (
       <RestaurantCard
         token={this.props.token}
         key={restaurant.id}
         restaurant={restaurant}
+        login={this.props.login}
         deleteRestaurant={this.props.deleteRestaurant}
       />
     ));

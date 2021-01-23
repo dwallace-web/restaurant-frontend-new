@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import CustomerRestaurants from './CustomerRestaurants';
+
 export class Customers extends Component {
   constructor(props) {
     super(props);
-  }
 
-  state = {
-    data: [],
-  };
+    this.state = {
+      data: [],
+    };
+  }
 
   componentDidMount() {
     // this.tokenFinder(); //get the token & find out if a user is an admin
