@@ -56,7 +56,7 @@ export class CreateRestaurant extends Component {
           />
           <input
             placeholder="phone number"
-            type="text"
+            type="tel"
             name="phonenumber"
             onChange={(e) => (this.phonenumber = e.target.value)}
           />

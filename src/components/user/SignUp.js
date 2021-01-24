@@ -37,12 +37,14 @@ export class SignUp extends Component {
               admin: data.user.restaurantowner,
             })
           );
+
+          console.log('done');
         } else {
           throw Error(data.error);
         }
       })
       .catch((error) => {
-        alert(error);
+        alert('Something went wrong, please try again!');
         console.log(error);
       });
   };
@@ -54,9 +56,10 @@ export class SignUp extends Component {
         <form onSubmit={this.register}>
           <input
             placeholder="email"
-            type="text"
+            type="email"
             // value={this.state.email}
             name="email"
+            required
             // onChange={(data) => {
             //   this.setState({ email: data.target.value });
             // }}
@@ -67,6 +70,7 @@ export class SignUp extends Component {
             type="text"
             // value={this.state.username}
             name="username"
+            required
             // onChange={(data) => {
             //   this.setState({ username: data.target.value || '' });
             // }}
@@ -76,6 +80,7 @@ export class SignUp extends Component {
             placeholder="password"
             type="password"
             name="password"
+            required
             // onChange={(data) => {
             //   this.setState({ password: data.target.value || '' });
             // }}
@@ -83,9 +88,11 @@ export class SignUp extends Component {
           />
           <input
             placeholder="Phone Number"
-            type="number"
+            type="text"
             // value={this.state.phonenumber}
             name="phonenumber"
+            maxlength="16"
+            // pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
             // onChange={(data) => {
             //   this.setState({ phonenumber: data.target.value || '' });
             // }}
