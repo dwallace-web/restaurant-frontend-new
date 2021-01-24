@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import CustomerBio from './CustomerBio';
 import CustomerRestaurants from './CustomerRestaurants';
 
 export class Customers extends Component {
@@ -11,9 +12,6 @@ export class Customers extends Component {
   }
 
   componentDidMount() {
-    // this.tokenFinder(); //get the token & find out if a user is an admin
-    // this.getUserRestaurants();
-    // console.log('fetch started');
     fetch('http://localhost:2000/restaurant', {
       headers: new Headers({
         'Content-Type': 'application/json',
@@ -36,7 +34,10 @@ export class Customers extends Component {
     return (
       <div>
         {this.props.login === true ? (
-          <br />
+          <div>
+            <h3>Welcome Back!</h3>
+            <CustomerBio token={this.props.token} login={this.props.login} />
+          </div>
         ) : (
           <div className="notice">
             <p>Sign In or Sign Up to create, edit or delete comments!</p>

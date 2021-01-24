@@ -12,13 +12,16 @@ export class CustomerCard extends Component {
   }
 
   componentDidMount() {
-    fetch(`http://localhost:2000/comment/${this.props.restaurant.id}`, {
-      headers: new Headers({
-        'Content-Type': 'application/json',
-        Authorization: this.props.token,
-      }),
-      method: 'GET',
-    })
+    fetch(
+      `http://localhost:2000/comment/restaurant/${this.props.restaurant.id}`,
+      {
+        headers: new Headers({
+          'Content-Type': 'application/json',
+          Authorization: this.props.token,
+        }),
+        method: 'GET',
+      }
+    )
       .then((response) => response.json())
       .then((comment) => {
         // console.log(restaurantdata);
@@ -47,7 +50,7 @@ export class CustomerCard extends Component {
         <p className="restaurantphone">Phone Number: {phonenumber}</p>
         <p className="restaurantcat">Category: {category}</p>
         <div className="restaurantcomments">
-          {this.state.comment.length > 0 ? (
+          {this.state.comment.length < 1 ? (
             <div>
               <p>No users have commented on this restaurant. </p>
             </div>

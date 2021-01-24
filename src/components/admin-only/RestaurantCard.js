@@ -59,10 +59,10 @@ export class RestaurantCard extends Component {
         <div className="restaurantcard">
           <h5 className="restaurantname">Name: {name}</h5>
           <div className="restaurantbuttons">
-            <Button onClick={this.toggle}>Edit</Button>{' '}
-            <Button onClick={this.props.deleteRestaurant.bind(this, id)}>
+            <button onClick={this.toggle}>Edit</button>{' '}
+            <button onClick={this.props.deleteRestaurant.bind(this, id)}>
               Delete
-            </Button>
+            </button>
           </div>
           <p className="`restaurantaddress`">Address: {address}</p>
           <p className="restaurantphone">Phone Number: {phonenumber}</p>

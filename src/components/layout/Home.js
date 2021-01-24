@@ -22,13 +22,13 @@ export class Home extends Component {
   tokenFinder() {
     const token = JSON.parse(localStorage.getItem('token'));
 
-    if (token.login && token.admin === true) {
+    if (token && token.login && token.admin === true) {
       this.setState({
         login: true,
         admin: true,
         token: JSON.parse(localStorage.getItem('token')).token,
       });
-    } else if (token.login) {
+    } else if (token && token.login === true) {
       this.setState({
         login: true,
         token: JSON.parse(localStorage.getItem('token')).token,
