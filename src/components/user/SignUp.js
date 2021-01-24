@@ -10,7 +10,6 @@ export class SignUp extends Component {
 
   register = (e) => {
     e.preventDefault();
-    console.log('works');
 
     const input = {
       email: this.email,
@@ -19,19 +18,17 @@ export class SignUp extends Component {
       phonenumber: this.phonenumber,
       restaurantowner: this.restaurantowner,
     };
-
-    try {
-      // const input = this.state;
-      fetch('http://localhost:2000/user/signup', {
-        method: 'POST',
-        headers: new Headers({
-          'Content-Type': 'application/json',
-        }),
-        body: JSON.stringify(input),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          console.log(data);
+    fetch('http://localhost:2000/user/signup', {
+      method: 'POST',
+      headers: new Headers({
+        'Content-Type': 'application/json',
+      }),
+      body: JSON.stringify(input),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        if (data.login === true) {
           localStorage.setItem(
             'token',
             JSON.stringify({
@@ -40,10 +37,14 @@ export class SignUp extends Component {
               admin: data.user.restaurantowner,
             })
           );
-        });
-    } catch (error) {
-      console.log('error', error);
-    }
+        } else {
+          throw Error(data.error);
+        }
+      })
+      .catch((error) => {
+        alert(error);
+        console.log(error);
+      });
   };
 
   render() {

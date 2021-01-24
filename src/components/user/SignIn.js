@@ -9,7 +9,6 @@ export class SignIn extends Component {
 
   signIn = (e) => {
     e.preventDefault();
-    console.log('works');
 
     const input = {
       email: this.email,
@@ -25,51 +24,24 @@ export class SignIn extends Component {
     })
       .then((response) => response.json())
       .then((data) => {
-        // console.log(data);
-        localStorage.setItem(
-          'token',
-          JSON.stringify({
-            login: true,
-            token: data.sessionToken,
-            admin: data.user.restaurantowner,
-          })
-        );
+        console.log(data);
+        if (data.login === true) {
+          localStorage.setItem(
+            'token',
+            JSON.stringify({
+              login: true,
+              token: data.sessionToken,
+              admin: data.user.restaurantowner,
+            })
+          );
+        } else {
+          throw Error(data.error);
+        }
       })
       .catch((error) => {
         alert(error);
+        console.log(error);
       });
-
-    // try {
-    //   e.preventDefault();
-    //   console.log('works');
-
-    //   const input = {
-    //     email: this.email,
-    //     password: this.password,
-    //   };
-
-    //   fetch('http://localhost:2000/user/signin', {
-    //     method: 'POST',
-    //     headers: new Headers({
-    //       'Content-Type': 'application/json',
-    //     }),
-    //     body: JSON.stringify(input),
-    //   })
-    //     .then((response) => response.json())
-    //     .then((data) => {
-    //       console.log(data);
-    //       localStorage.setItem(
-    //         'token',
-    //         JSON.stringify({
-    //           login: true,
-    //           token: data.sessionToken,
-    //           admin: data.user.restaurantowner,
-    //         })
-    //       );
-    //     });
-    // } catch (error) {
-    //   console.log('error', error);
-    // }
   };
 
   render() {
