@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Button } from 'reactstrap';
 import CustomerComments from '../customer-view/CustomerComments';
 import CreateComment from '../user/CreateComment';
 import EditRestaurant from './EditRestaurant';
