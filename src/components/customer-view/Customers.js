@@ -12,6 +12,8 @@ export class Customers extends Component {
   }
 
   componentDidMount() {
+    this.mounted = true;
+
     fetch('http://localhost:2000/restaurant', {
       headers: new Headers({
         'Content-Type': 'application/json',
@@ -22,12 +24,18 @@ export class Customers extends Component {
       .then((response) => response.json())
       .then((restaurantdata) => {
         // console.log(restaurantdata);
-        this.setState({ data: restaurantdata.data });
+        if (this.mounted) {
+          this.setState({ data: restaurantdata.data });
+        }
       })
       .catch((error) => {
         console.log('error--->', error);
       });
     console.log('res fetch finished!');
+  }
+
+  componentWillUnmount() {
+    this.mounted = false;
   }
 
   render() {

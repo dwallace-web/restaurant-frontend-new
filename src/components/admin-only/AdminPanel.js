@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import CustomerBio from '../customer-view/CustomerBio';
 import CreateRestaurant from './CreateRestaurant';
 import ViewRestaurants from './ViewRestaurants';
 
@@ -65,6 +66,7 @@ export class AdminPanel extends Component {
           data={this.state.data}
           deleteRestaurant={this.deleteRestaurant}
         />
+        <CustomerBio login={this.props.login} token={this.props.token} />
       </div>
     );
   }

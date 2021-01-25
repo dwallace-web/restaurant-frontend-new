@@ -17,13 +17,16 @@ export class RestaurantCard extends Component {
     // this.tokenFinder(); //get the token & find out if a user is an admin
     // this.getUserRestaurants();
     // console.log('fetch started');
-    fetch(`http://localhost:2000/comment/${this.props.restaurant.id}`, {
-      headers: new Headers({
-        'Content-Type': 'application/json',
-        Authorization: this.props.token,
-      }),
-      method: 'GET',
-    })
+    fetch(
+      `http://localhost:2000/comment/restaurant/${this.props.restaurant.id}`,
+      {
+        headers: new Headers({
+          'Content-Type': 'application/json',
+          Authorization: this.props.token,
+        }),
+        method: 'GET',
+      }
+    )
       .then((response) => response.json())
       .then((comment) => {
         // console.log(restaurantdata);
