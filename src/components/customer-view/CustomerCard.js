@@ -34,17 +34,10 @@ export class CustomerCard extends Component {
   }
 
   render() {
-    const {
-      id,
-      name,
-      address,
-      phonenumber,
-      category,
-      socialmedia,
-    } = this.props.restaurant;
+    const { id, name, address, phonenumber, category } = this.props.restaurant;
 
     return (
-      <div className="restaurantcard">
+      <div className="restaurantcard" key={id}>
         <h5 className="restaurantname">Name: {name}</h5>
         <p className="`restaurantaddress`">Address: {address}</p>
         <p className="restaurantphone">Phone Number: {phonenumber}</p>

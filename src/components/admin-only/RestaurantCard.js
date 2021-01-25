@@ -47,14 +47,7 @@ export class RestaurantCard extends Component {
   render() {
     // console.log('card', this.props.restaurant);
 
-    const {
-      id,
-      name,
-      address,
-      phonenumber,
-      category,
-      socialmedia,
-    } = this.props.restaurant;
+    const { id, name, address, phonenumber, category } = this.props.restaurant;
 
     return (
       <div>

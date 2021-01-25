@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Main from './Home';
-import { BrowserRouter, Switch, Link } from 'react-router-dom';
+
+import { Link } from 'react-router-dom';
 
 export class Nav extends Component {
   render() {
