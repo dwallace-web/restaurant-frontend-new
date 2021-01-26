@@ -1,11 +1,23 @@
 import React, { Component } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Redirect,
+  useHistory,
+  useLocation
+} from "react-router-dom";
 
 export class SignIn extends Component {
   //this will be a class component
 
-  // constructor(props) {
-  //   super(props);
-  // }
+  constructor() {
+    super();
+    this.state = {
+      login: false,
+    }
+  }
 
   signIn = (e) => {
     e.preventDefault();
@@ -33,7 +45,9 @@ export class SignIn extends Component {
               token: data.sessionToken,
               admin: data.user.restaurantowner,
             })
+          
           );
+          this.setState({ login: true})
         } else {
           throw Error(data.error);
         }
@@ -70,7 +84,16 @@ export class SignIn extends Component {
           />
           <button type="submit"> Submit</button>
         </form>
-        <div className="error"></div>
+        {/* <div className="error">{' '}</div> */}
+        {
+            this.state.login === true ? (
+              <div>
+                <Redirect to="/" />
+              </div>
+            )
+            :
+            ''
+          }
       </div>
     );
   }

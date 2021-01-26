@@ -1,13 +1,23 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
-import { Checkbox } from 'materialize-css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Redirect,
+  useHistory,
+  useLocation
+} from "react-router-dom";
 
 export class SignUp extends Component {
   //this will be a class component
 
   constructor() {
     super();
-    this.restaurantowner = false;
+    this.state = {
+      restaurantowner: false,
+      login: false,
+    }
   }
 
   register = (e) => {
@@ -32,6 +42,7 @@ export class SignUp extends Component {
       .then((data) => {
         console.log(data);
         if (data.login === true) {
+          
           localStorage.setItem(
             'token',
             JSON.stringify({
@@ -40,7 +51,8 @@ export class SignUp extends Component {
               admin: data.user.restaurantowner,
             })
           );
-          <Redirect to="/" />
+          this.setState({ login: true})
+
           console.log('done');
         } else {
           throw Error(data.error);
@@ -53,7 +65,10 @@ export class SignUp extends Component {
   };
 
   render() {
+
+    
     return (
+      
       <div>
         <h1>Register in react class components</h1>
         <form onSubmit={this.register}>
@@ -106,6 +121,7 @@ export class SignUp extends Component {
           />
           <p>Please select if you would like to setup a busines page:</p>
           <input
+          
             type="checkbox"
             name="restaurantowner"
             // onClick={() => {
@@ -115,6 +131,17 @@ export class SignUp extends Component {
           />
           <button type="submit"> Submit</button>
         </form>
+        
+          {
+            this.state.login === true ? (
+              <div>
+                <Redirect to="/" />
+              </div>
+            )
+            :
+            ''
+          }
+        
       </div>
     );
   }
