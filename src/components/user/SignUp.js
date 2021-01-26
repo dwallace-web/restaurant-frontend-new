@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
+import { Checkbox } from 'materialize-css';
 
 export class SignUp extends Component {
   //this will be a class component
@@ -18,6 +20,7 @@ export class SignUp extends Component {
       phonenumber: this.phonenumber,
       restaurantowner: this.restaurantowner,
     };
+    
     fetch('http://localhost:2000/user/signup', {
       method: 'POST',
       headers: new Headers({
@@ -37,7 +40,7 @@ export class SignUp extends Component {
               admin: data.user.restaurantowner,
             })
           );
-
+          <Redirect to="/" />
           console.log('done');
         } else {
           throw Error(data.error);

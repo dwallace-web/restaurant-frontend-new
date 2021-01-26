@@ -5,9 +5,6 @@ import Customers from '../customer-view/Customers';
 export class Home extends Component {
   constructor() {
     super();
-    // this.state.login = null;
-    // this.state.admin = false;
-
     this.state = {
       login: false,
       admin: false,
