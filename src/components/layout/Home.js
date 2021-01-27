@@ -4,6 +4,13 @@ import Customers from '../customer-view/Customers';
 
 export class Home extends Component {
 
+  constructor(props) {
+    super(props);
+
+  }
+
+  
+  
   render() {
     return (
       <div>

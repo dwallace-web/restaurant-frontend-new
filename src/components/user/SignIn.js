@@ -12,10 +12,10 @@ import {
 export class SignIn extends Component {
   //this will be a class component
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      login: false,
+      active: false,
     }
   }
 
@@ -47,7 +47,7 @@ export class SignIn extends Component {
             })
           
           );
-          this.setState({ login: true})
+          this.setState({ active: true})
         } else {
           throw Error(data.error);
         }
@@ -66,27 +66,19 @@ export class SignIn extends Component {
           <input
             placeholder="email"
             type="text"
-            // value={this.state.email}
             name="email"
-            // onChange={(data) => {
-            //   this.setState({ email: data.target.value });
-            // }}
             onChange={(e) => (this.email = e.target.value)}
           />
           <input
             placeholder="password"
             type="password"
             name="password"
-            // onChange={(data) => {
-            //   this.setState({ password: data.target.value || '' });
-            // }}
             onChange={(e) => (this.password = e.target.value)}
           />
           <button type="submit"> Submit</button>
         </form>
-        {/* <div className="error">{' '}</div> */}
         {
-            this.state.login === true ? (
+            this.state.active === true ? (
               <div>
                 <Redirect to="/" />
               </div>
