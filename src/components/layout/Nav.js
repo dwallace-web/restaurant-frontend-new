@@ -32,7 +32,6 @@ export class Nav extends Component {
         <Link to={'/signin'}>Sign In</Link>{' '}
         <Link to={' '} onClick={
           () => {localStorage.clear()
-          // this.setState({ logout: true})
           this.handleLogout()
        }}>
           Log Out

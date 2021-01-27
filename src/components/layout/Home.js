@@ -3,51 +3,20 @@ import AdminPanel from '../admin-only/AdminPanel';
 import Customers from '../customer-view/Customers';
 
 export class Home extends Component {
-  constructor() {
-    super();
-    this.state = {
-      login: false,
-      admin: false,
-      token: JSON.parse(localStorage.getItem('token'))?.token || '',
-    };
-  }
-
-  componentDidMount() {
-    this.tokenFinder(); //get the token & find out if a user is an admin
-  }
-
-  tokenFinder() {
-    const token = JSON.parse(localStorage.getItem('token'));
-
-    if (token && token.login && token.admin === true) {
-      this.setState({
-        login: true,
-        admin: true,
-        token: JSON.parse(localStorage.getItem('token')).token,
-      });
-    } else if (token && token.login === true) {
-      this.setState({
-        login: true,
-        token: JSON.parse(localStorage.getItem('token')).token,
-      });
-    } else {
-      this.setState({ login: false, admin: false });
-    }
-  }
 
   render() {
     return (
       <div>
         <h4>Restaurant App </h4>
-        {this.state.admin === true ? (
+        {this.props.admin === true ? (
           <div>
             Welcome back!
-            <AdminPanel login={this.state.login} token={this.state.token} />
+            <AdminPanel login={this.props.login} token={this.props.token} />
             <br />
           </div>
         ) : (
           <div>
-            <Customers login={this.state.login} token={this.state.token} />
+            <Customers login={this.props.login} token={this.props.token} />
           </div>
         )}
       </div>
