@@ -1,10 +1,21 @@
 import React, { Component } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Redirect,
+  useHistory,
+  useLocation
+} from "react-router-dom";
 
 export class CreateComment extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      commentmade: false,
+    };
   }
 
   createComment = (e) => {
@@ -32,6 +43,8 @@ export class CreateComment extends Component {
         .then((response) => response.json())
         .then((comment) => {
           console.log('comment---> ', comment);
+
+          this.setState({ commentmade: true})
         });
     } catch (error) {
       console.log('error', error);
@@ -59,6 +72,15 @@ export class CreateComment extends Component {
           <button type="submit"> Submit</button>
         </form>
         <br />
+        {
+            this.state.login === true ? (
+              <div>
+                <Redirect to="/" />
+              </div>
+            )
+            :
+            ''
+          }
       </div>
     );
   }
