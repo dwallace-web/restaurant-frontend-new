@@ -16,15 +16,7 @@ export class Nav extends Component {
       logout: false,
     }
   }
-
-  handleLogout = () => {
-    this.setState(previousState => {
-        return {
-          logout: !previousState.logout
-        }
-      })
-    }
-   
+  
   render() {
     return (
       <div>
@@ -32,19 +24,19 @@ export class Nav extends Component {
         <Link to={'/signin'}>Sign In</Link>{' '}
         <Link to={' '} onClick={
           () => {localStorage.clear()
-          this.handleLogout()
+          this.setState({ logout: true})
        }}>
           Log Out
         </Link>
         {
             this.state.logout === true ? (
               <div>
-                <Redirect to="/signin" />
+                <Redirect to="/" />
               </div>
             )
             :
             <div>
-                <Redirect to="/" />
+                <Redirect to="/signin" />
               </div>
           }
       </div>
