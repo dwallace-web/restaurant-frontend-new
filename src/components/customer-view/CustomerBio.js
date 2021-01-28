@@ -8,6 +8,7 @@ export class CustomerBio extends Component {
 
     this.state = {
       comment: [],
+      deletedcomment: false,
     };
   }
 
@@ -44,6 +45,7 @@ export class CustomerBio extends Component {
         .then((response) => response.json())
         .then((data) => {
           console.log(data);
+          this.setState({ deletedcomment: true });
         });
     } catch (error) {
       console.log('error', error);

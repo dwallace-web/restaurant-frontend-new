@@ -1,6 +1,16 @@
 import React, { Component } from 'react';
 
 export class EditComment extends Component {
+
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      commentedit: false,
+    };
+  }
+
   editComment = (e) => {
     e.preventDefault();
     // console.log('works');
@@ -34,6 +44,8 @@ export class EditComment extends Component {
         .then((data) => {
           //make page refresh
           console.log(data);
+
+          this.setState({ commentedit: true });
         });
     } catch (error) {
       console.log('error', error);
@@ -44,23 +56,34 @@ export class EditComment extends Component {
     return (
       <div>
         <p>Edit Comment</p>
-        <form onSubmit={this.editComment}>
-          <input
-            placeholder="title"
-            type="text"
-            name="title"
-            required
-            onChange={(e) => (this.title = e.target.value)}
-          />
-          <input
-            placeholder="Body"
-            type="text"
-            name="body"
-            required
-            onChange={(e) => (this.body = e.target.value)}
-          />
-          <button type="submit"> Submit</button>
-        </form>
+        {
+          this.state.commentedit === false
+            ?
+            <div>
+              <form onSubmit={this.editComment}>
+                <input
+                  placeholder="title"
+                  type="text"
+                  name="title"
+                  required
+                  onChange={(e) => (this.title = e.target.value)}
+                />
+                <input
+                  placeholder="Body"
+                  type="text"
+                  name="body"
+                  required
+                  onChange={(e) => (this.body = e.target.value)}
+                />
+                <button type="submit"> Submit</button>
+              </form>
+            </div>
+            :
+            <div>
+              <p>Comment was edited!</p>
+            </div>
+        }
+
       </div>
     );
   }
