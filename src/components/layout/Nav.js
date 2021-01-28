@@ -5,9 +5,8 @@ import {
   Route,
   Link,
   Redirect,
-  useHistory,
-  useLocation
 } from "react-router-dom";
+import { Grid, Button } from '@material-ui/core';
 
 export class Nav extends Component {
   constructor() {
@@ -26,17 +25,45 @@ export class Nav extends Component {
 
   render() {
     return (
-      <div>
-        <Link to={'/'}>Home</Link> <Link to={'/signup'}>Sign Up</Link>{' '}
-        <Link to={'/signin'}>Sign In</Link>{' '}
-        <Link to={' '} onClick={
-          () => {
-            localStorage.clear()
-            // this.setState({ logout: true})
-            this.handleLogout()
-          }}>
-          Log Out
-        </Link>
+      <div className="navigation" maxWidth="sm">
+        <Grid container spacing={3}>
+          <Grid item xs={3}>
+
+            <Link to={'/'}>
+              <Button variant="contained" color="primary">
+                Home
+              </Button>
+            </Link>
+          </Grid>
+          <Grid item xs={3}>
+            <Link to={'/signup'}>
+              <Button variant="contained" color="primary">
+                Sign Up
+          </Button>
+            </Link>
+          </Grid>
+          <Grid item xs={3}>
+
+            <Link to={'/signin'}>
+
+              <Button variant="contained" color="primary">
+                Sign In
+            </Button>
+            </Link>
+          </Grid>
+          <Grid item xs={3}>
+            <Link to={' '} onClick={
+              () => {
+                localStorage.clear()
+                // this.setState({ logout: true})
+                this.handleLogout()
+              }}>
+              <Button variant="contained" color="primary">
+                Log Out
+            </Button>
+            </Link>
+          </Grid>
+        </Grid>
         {
           this.state.logout === false ? (
             <div>

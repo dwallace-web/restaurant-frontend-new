@@ -3,6 +3,9 @@ import React, { Component } from 'react';
 export class CreateRestaurant extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      createdPlace: false,
+    }
   }
 
   createRestaurant = (e) => {
@@ -31,6 +34,7 @@ export class CreateRestaurant extends Component {
         .then((response) => response.json())
         .then((data) => {
           console.log(data);
+          this.setState({ createdPlace: true });
         });
     } catch (error) {
       console.log('error', error);
