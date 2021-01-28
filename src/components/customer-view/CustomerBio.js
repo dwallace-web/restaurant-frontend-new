@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import CustomerBioComment from './CustomerBioComment';
+// import CustomerBioComment from './CustomerBioComment';
+import CustomerBioPanel from './CustomerBioPanel';
 
 export class CustomerBio extends Component {
   constructor(props) {
@@ -53,7 +54,8 @@ export class CustomerBio extends Component {
     return (
       <div>
         <h1>My Comments: </h1>
-        <CustomerBioComment
+
+        <CustomerBioPanel
           comment={this.state.comment}
           deleteComment={this.deleteComment}
           token={this.props.token}

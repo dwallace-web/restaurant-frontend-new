@@ -4,7 +4,9 @@ export class CreateComment extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      commentmade: false,
+    };
   }
 
   createComment = (e) => {
@@ -32,6 +34,7 @@ export class CreateComment extends Component {
         .then((response) => response.json())
         .then((comment) => {
           console.log('comment---> ', comment);
+          this.setState({ commentmade: true });
         });
     } catch (error) {
       console.log('error', error);
@@ -42,22 +45,29 @@ export class CreateComment extends Component {
     return (
       <div>
         <p>Leave a comment</p>
+        {
+          this.state.commentmade === false
+            ? <form onSubmit={this.createComment}>
+              <input
+                placeholder="Comment Title"
+                type="text"
+                name="title"
+                onChange={(e) => (this.title = e.target.value)}
+              />
+              <input
+                placeholder="Comment Details"
+                type="text"
+                name="body"
+                onChange={(e) => (this.body = e.target.value)}
+              />
+              <button type="submit"> Submit</button>
+            </form>
+            :
+            <div>
+              <p>Comment was made.</p>
+            </div>
+        }
 
-        <form onSubmit={this.createComment}>
-          <input
-            placeholder="Comment Title"
-            type="text"
-            name="title"
-            onChange={(e) => (this.title = e.target.value)}
-          />
-          <input
-            placeholder="Comment Details"
-            type="text"
-            name="body"
-            onChange={(e) => (this.body = e.target.value)}
-          />
-          <button type="submit"> Submit</button>
-        </form>
         <br />
       </div>
     );

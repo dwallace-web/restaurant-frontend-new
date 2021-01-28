@@ -9,14 +9,20 @@ export class CustomerRestaurants extends Component {
   render() {
     // console.log('customers only', this.props.data);
 
-    return this.props.data.map((restaurant) => (
-      <CustomerCard
-        key={restaurant.id}
-        restaurant={restaurant}
-        token={this.props.token}
-        login={this.props.login}
-      />
-    ));
+    return (
+
+      <div>
+        <h1>View Restaurants</h1>
+        {this.props.data.map((restaurant) => (
+          <CustomerCard
+            key={restaurant.id}
+            restaurant={restaurant}
+            token={this.props.token}
+            login={this.props.login}
+          />
+        ))}
+      </div>
+    )
   }
 }
 
