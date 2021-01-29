@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Typography, Grid } from '@material-ui/core';
 
 export class CustomerComments extends Component {
   constructor(props) {
@@ -7,10 +8,10 @@ export class CustomerComments extends Component {
 
   render() {
     return this.props.comment.map((comment) => (
-      <div key={comment.id} className="single-comment">
-        <h6>{comment.title}</h6>
-        <p>{comment.body}</p>
-      </div>
+      <Grid key={comment.id} className="single-comment">
+        <Typography>{comment.title}</Typography>
+        <Typography>{comment.body}</Typography>
+      </Grid>
     ));
   }
 }

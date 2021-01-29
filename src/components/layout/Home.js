@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AdminPanel from '../admin-only/AdminPanel';
 import Customers from '../customer-view/Customers';
+import { Grid, Paper } from '@material-ui/core';
 
 export class Home extends Component {
 
@@ -12,14 +13,14 @@ export class Home extends Component {
       token: JSON.parse(localStorage.getItem('token'))?.token || '',
     };
   }
- 
+
   componentDidMount() {
     this.tokenFinder(); //get the token & find out if a user is an admin
   }
-  
+
   tokenFinder() {
     const token = JSON.parse(localStorage.getItem('token'));
-    
+
     // if(!token)
 
     if (token && token.login && token.admin === true) {
@@ -38,12 +39,10 @@ export class Home extends Component {
     }
   }
 
-  
-  
   render() {
     return (
+
       <div>
-        <h4>Restaurant App </h4>
         {this.state.admin === true ? (
           <div>
             Welcome back!
@@ -51,10 +50,10 @@ export class Home extends Component {
             <br />
           </div>
         ) : (
-          <div>
-            <Customers login={this.state.login} token={this.state.token} />
-          </div>
-        )}
+            <div>
+              <Customers login={this.state.login} token={this.state.token} />
+            </div>
+          )}
       </div>
     );
   }

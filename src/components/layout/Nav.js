@@ -26,9 +26,9 @@ export class Nav extends Component {
   render() {
     return (
       <div className="navigation" maxWidth="sm">
+        <h4>Restaurant App </h4>
         <Grid container spacing={3}>
           <Grid item xs={3}>
-
             <Link to={'/'}>
               <Button variant="contained" color="primary">
                 Home

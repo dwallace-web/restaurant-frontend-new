@@ -4,7 +4,7 @@ import SignUp from '../user/SignUp';
 import Home from './Home';
 import Nav from './Nav';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { Container, Grid } from '@material-ui/core';
+import { Container } from '@material-ui/core';
 
 export class Body extends Component {
 
@@ -30,7 +30,7 @@ export class Body extends Component {
   //on click function to render the body / visit component / route to update the state?
   render() {
     return (
-      <Container >
+      <Container maxWidth="lg">
         <BrowserRouter>
           <div>
             <Nav />
