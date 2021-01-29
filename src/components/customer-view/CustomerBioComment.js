@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import EditComment from './EditComment';
+import { Typography, Button, Card, CardContent } from '@material-ui/core'
 
 export class CustomerBioComment extends Component {
   constructor(props) {
@@ -11,16 +12,18 @@ export class CustomerBioComment extends Component {
     const { title, body, id } = this.props.comment;
 
     return (
-      <div>
-        <div className="single-comment">
-          <h6>{title}</h6>
-          <p>{body}</p>
+      <Card>
+
+        <CardContent>
+
+          <Typography>{title}</Typography>
+          <Typography>{body}</Typography>
           <EditComment token={this.props.token} comment={this.props.comment} />
-          <button onClick={this.props.deleteComment.bind(this, id)}>
+          <Button onClick={this.props.deleteComment.bind(this, id)}>
             Delete Comment{' '}
-          </button>
-        </div>
-      </div>
+          </Button>
+        </CardContent>
+      </Card>
     )
   }
 }

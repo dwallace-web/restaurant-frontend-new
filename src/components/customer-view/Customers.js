@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CustomerBio from './CustomerBio';
 import CustomerRestaurants from './CustomerRestaurants';
+import { Typography } from '@material-ui/core'
 
 export class Customers extends Component {
   constructor(props) {
@@ -43,14 +44,13 @@ export class Customers extends Component {
       <div>
         {this.props.login === true ? (
           <div>
-            <h3>Welcome Back!</h3>
             <CustomerBio token={this.props.token} login={this.props.login} />
           </div>
         ) : (
-          <div className="notice">
-            <p>Sign In or Sign Up to create, edit or delete comments!</p>
-          </div>
-        )}
+            <div className="notice">
+              <Typography>Sign In or Sign Up to create, edit or delete comments!</Typography>
+            </div>
+          )}
 
         <CustomerRestaurants
           data={this.state.data}

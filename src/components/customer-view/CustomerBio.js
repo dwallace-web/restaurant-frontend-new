@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-// import CustomerBioComment from './CustomerBioComment';
 import CustomerBioPanel from './CustomerBioPanel';
+import { Typography } from '@material-ui/core'
 
 export class CustomerBio extends Component {
   constructor(props) {
@@ -55,7 +55,7 @@ export class CustomerBio extends Component {
   render() {
     return (
       <div>
-        <h1>My Comments: </h1>
+        <Typography>My Comments: </Typography>
 
         <CustomerBioPanel
           comment={this.state.comment}

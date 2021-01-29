@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Typography, Button, TextField } from '@material-ui/core'
 
 export class EditComment extends Component {
 
@@ -55,32 +56,32 @@ export class EditComment extends Component {
   render() {
     return (
       <div>
-        <p>Edit Comment</p>
+        <Typography>Edit Comment</Typography>
         {
           this.state.commentedit === false
             ?
             <div>
               <form onSubmit={this.editComment}>
-                <input
+                <TextField
                   placeholder="title"
                   type="text"
                   name="title"
                   required
                   onChange={(e) => (this.title = e.target.value)}
                 />
-                <input
+                <TextField
                   placeholder="Body"
                   type="text"
                   name="body"
                   required
                   onChange={(e) => (this.body = e.target.value)}
                 />
-                <button type="submit"> Submit</button>
+                <Button type="submit"> Submit</Button>
               </form>
             </div>
             :
             <div>
-              <p>Comment was edited!</p>
+              <Typography>Comment was edited!</Typography>
             </div>
         }
 

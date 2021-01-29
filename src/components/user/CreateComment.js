@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button, TextField, Typography } from '@material-ui/core'
 
 export class CreateComment extends Component {
   constructor(props) {
@@ -44,28 +45,32 @@ export class CreateComment extends Component {
   render() {
     return (
       <div>
-        <p>Leave a comment</p>
+        <Typography>Leave a comment</Typography>
         {
           this.state.commentmade === false
             ? <form onSubmit={this.createComment}>
-              <input
+              <TextField
+                id="outlined-basic" label="Title of Comment" variant="outlined"
                 placeholder="Comment Title"
                 type="text"
                 name="title"
+                required
                 onChange={(e) => (this.title = e.target.value)}
               />
-              <input
+              <TextField
+                id="outlined-basic" label="Comment Details" variant="outlined"
                 placeholder="Comment Details"
                 type="text"
                 name="body"
+                required
                 onChange={(e) => (this.body = e.target.value)}
               />
-              <button type="submit"> Submit</button>
+              <Button type="submit"> Submit </Button>
             </form>
             :
-            <div>
+            <Typography>
               <p>Comment was made.</p>
-            </div>
+            </Typography>
         }
 
         <br />
