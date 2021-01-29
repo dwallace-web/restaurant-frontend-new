@@ -9,8 +9,8 @@ export class CustomerComments extends Component {
   render() {
     return this.props.comment.map((comment) => (
       <Grid key={comment.id} className="single-comment">
-        <Typography>{comment.title}</Typography>
-        <Typography>{comment.body}</Typography>
+        <Typography variant="subtitle2" > {comment.title}</Typography>
+        <Typography variant="caption" gutterBottom>{comment.body}</Typography>
       </Grid>
     ));
   }
