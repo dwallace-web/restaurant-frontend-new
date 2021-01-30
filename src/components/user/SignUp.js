@@ -8,6 +8,7 @@ import {
   useHistory,
   useLocation
 } from "react-router-dom";
+import { Typography, TextField, Button } from '@material-ui/core'
 
 import API_URL from '../../helpers/environment';
 
@@ -72,9 +73,9 @@ export class SignUp extends Component {
     return (
 
       <div>
-        <h1>Register in react class components</h1>
+        <Typography>Create Your Account:</Typography>
         <form onSubmit={this.register}>
-          <input
+          <TextField
             placeholder="email"
             type="email"
             // value={this.state.email}
@@ -85,7 +86,7 @@ export class SignUp extends Component {
             // }}
             onChange={(e) => (this.email = e.target.value)}
           />
-          <input
+          <TextField
             placeholder="username"
             type="text"
             // value={this.state.username}
@@ -97,7 +98,7 @@ export class SignUp extends Component {
             // }}
             onChange={(e) => (this.username = e.target.value)}
           />
-          <input
+          <TextField
             placeholder="password"
             type="password"
             name="password"
@@ -108,7 +109,7 @@ export class SignUp extends Component {
             // }}
             onChange={(e) => (this.password = e.target.value)}
           />
-          <input
+          <TextField
             placeholder="Phone Number"
             type="text"
             // value={this.state.phonenumber}
@@ -123,7 +124,6 @@ export class SignUp extends Component {
           />
           <p>Please select if you would like to setup a busines page:</p>
           <input
-
             type="checkbox"
             name="restaurantowner"
             // onClick={() => {
@@ -131,7 +131,7 @@ export class SignUp extends Component {
             // }}
             onClick={(e) => (this.restaurantowner = true)}
           />
-          <button type="submit"> Submit</button>
+          <Button type="submit"> Sign Up </Button>
         </form>
 
         {

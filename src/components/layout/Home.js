@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import AdminPanel from '../admin-only/AdminPanel';
 import Customers from '../customer-view/Customers';
-import { Grid, Paper, Typography } from '@material-ui/core';
+import { Grid, Typography } from '@material-ui/core';
 import API_URL from '../../helpers/environment';
 
 export class Home extends Component {

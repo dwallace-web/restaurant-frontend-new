@@ -9,6 +9,7 @@ import {
   useLocation
 } from "react-router-dom";
 import API_URL from '../../helpers/environment';
+import { Typography, TextField, Button } from '@material-ui/core'
 
 export class SignIn extends Component {
   //this will be a class component
@@ -62,21 +63,21 @@ export class SignIn extends Component {
   render() {
     return (
       <div>
-        <h1>Sign In with React!</h1>
+        <Typography>Welcome back. Please sign-in: </Typography>
         <form onSubmit={this.signIn}>
-          <input
+          <TextField
             placeholder="email"
             type="text"
             name="email"
             onChange={(e) => (this.email = e.target.value)}
           />
-          <input
+          <TextField
             placeholder="password"
             type="password"
             name="password"
             onChange={(e) => (this.password = e.target.value)}
           />
-          <button type="submit"> Submit</button>
+          <Button type="submit"> Sign In </Button>
         </form>
         {
           this.state.active === true ? (

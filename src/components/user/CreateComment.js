@@ -70,7 +70,7 @@ export class CreateComment extends Component {
             </form>
             :
             <Typography>
-              <p>Comment was made.</p>
+              Comment was made.
             </Typography>
         }
 
