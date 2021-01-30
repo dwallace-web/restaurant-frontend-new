@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import API_URL from '../../helpers/environment';
 
 export class CreateRestaurant extends Component {
   constructor(props) {
@@ -23,7 +24,7 @@ export class CreateRestaurant extends Component {
 
     try {
       // const input = this.state;
-      fetch('http://localhost:2000/restaurant/', {
+      fetch(`${API_URL}/restaurant/`, {
         method: 'POST',
         headers: new Headers({
           'Content-Type': 'application/json',

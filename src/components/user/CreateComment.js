@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button, TextField, Typography } from '@material-ui/core'
+import API_URL from '../../helpers/environment';
 
 export class CreateComment extends Component {
   constructor(props) {
@@ -24,7 +25,7 @@ export class CreateComment extends Component {
 
     try {
       // const input = this.state;
-      fetch(`http://localhost:2000/comment/`, {
+      fetch(`${API_URL}/comment/`, {
         method: 'POST',
         headers: new Headers({
           'Content-Type': 'application/json',

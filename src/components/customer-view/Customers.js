@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import CustomerBio from './CustomerBio';
 import CustomerRestaurants from './CustomerRestaurants';
 import { Typography } from '@material-ui/core'
+import API_URL from '../../helpers/environment';
 
 export class Customers extends Component {
   constructor(props) {
@@ -15,7 +16,7 @@ export class Customers extends Component {
   componentDidMount() {
     this.mounted = true;
 
-    fetch('http://localhost:2000/restaurant', {
+    fetch(`${API_URL}/restaurant`, {
       headers: new Headers({
         'Content-Type': 'application/json',
         Authorization: this.props.token,

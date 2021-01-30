@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import CustomerBio from '../customer-view/CustomerBio';
 import CreateRestaurant from './CreateRestaurant';
 import ViewRestaurants from './ViewRestaurants';
+import API_URL from '../../helpers/environment';
+
 
 export class AdminPanel extends Component {
   constructor(props) {
@@ -16,7 +18,7 @@ export class AdminPanel extends Component {
     // this.tokenFinder(); //get the token & find out if a user is an admin
     // this.getUserRestaurants();
     // console.log('fetch started');
-    fetch('http://localhost:2000/restaurant/user', {
+    fetch(`${API_URL}/restaurant/user`, {
       headers: new Headers({
         'Content-Type': 'application/json',
         Authorization: this.props.token,
@@ -38,7 +40,7 @@ export class AdminPanel extends Component {
     // e.preventDefault();
     console.log('works', id);
     try {
-      fetch(`http://localhost:2000/restaurant/${id}`, {
+      fetch(`${API_URL}/restaurant/${id}`, {
         method: 'DELETE',
         headers: new Headers({
           'Content-Type': 'application/json',

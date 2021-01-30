@@ -6,6 +6,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from "@material-ui/core/styles";
+import API_URL from '../../helpers/environment';
 
 
 export class CustomerCard extends Component {
@@ -20,7 +21,7 @@ export class CustomerCard extends Component {
 
   componentDidMount() {
     fetch(
-      `http://localhost:2000/comment/restaurant/${this.props.restaurant.id}`,
+      `${API_URL}/comment/restaurant/${this.props.restaurant.id}`,
       {
         headers: new Headers({
           'Content-Type': 'application/json',
@@ -44,7 +45,7 @@ export class CustomerCard extends Component {
 
   render() {
     const { id, name, address, phonenumber, category } = this.props.restaurant;
-    const classes = makeStyles();
+    // const classes = makeStyles();
 
     return (
       <Grid

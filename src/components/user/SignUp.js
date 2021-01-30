@@ -9,6 +9,8 @@ import {
   useLocation
 } from "react-router-dom";
 
+import API_URL from '../../helpers/environment';
+
 export class SignUp extends Component {
   //this will be a class component
 
@@ -30,8 +32,8 @@ export class SignUp extends Component {
       phonenumber: this.phonenumber,
       restaurantowner: this.restaurantowner,
     };
-    
-    fetch('http://localhost:2000/user/signup', {
+
+    fetch(`${API_URL}/user/signup`, {
       method: 'POST',
       headers: new Headers({
         'Content-Type': 'application/json',
@@ -42,7 +44,7 @@ export class SignUp extends Component {
       .then((data) => {
         console.log(data);
         if (data.login === true) {
-          
+
           localStorage.setItem(
             'token',
             JSON.stringify({
@@ -51,7 +53,7 @@ export class SignUp extends Component {
               admin: data.user.restaurantowner,
             })
           );
-          this.setState({ login: true})
+          this.setState({ login: true })
 
           console.log('done');
         } else {
@@ -66,9 +68,9 @@ export class SignUp extends Component {
 
   render() {
 
-    
+
     return (
-      
+
       <div>
         <h1>Register in react class components</h1>
         <form onSubmit={this.register}>
@@ -121,7 +123,7 @@ export class SignUp extends Component {
           />
           <p>Please select if you would like to setup a busines page:</p>
           <input
-          
+
             type="checkbox"
             name="restaurantowner"
             // onClick={() => {
@@ -131,17 +133,17 @@ export class SignUp extends Component {
           />
           <button type="submit"> Submit</button>
         </form>
-        
-          {
-            this.state.login === true ? (
-              <div>
-                <Redirect to="/" />
-              </div>
-            )
+
+        {
+          this.state.login === true ? (
+            <div>
+              <Redirect to="/" />
+            </div>
+          )
             :
             ''
-          }
-        
+        }
+
       </div>
     );
   }

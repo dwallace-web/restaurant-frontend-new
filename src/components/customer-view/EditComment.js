@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Typography, Button, TextField } from '@material-ui/core'
+import API_URL from '../../helpers/environment';
 
 export class EditComment extends Component {
 
@@ -21,17 +22,17 @@ export class EditComment extends Component {
       body: this.body,
     };
 
-    console.log(
-      'test input -->',
-      input,
-      'fetch url--->',
-      `http://localhost:2000/comment/restaurant/${this.props.comment.id}`
-    );
+    // console.log(
+    //   'test input -->',
+    //   input,
+    //   'fetch url--->',
+    //   `http://localhost:2000/comment/restaurant/${this.props.comment.id}`
+    // );
 
     try {
       // const input = this.state;
       fetch(
-        `http://localhost:2000/comment/restaurant/${this.props.comment.id}`,
+        `${API_URL}/comment/restaurant/${this.props.comment.id}`,
         {
           method: 'PUT',
           headers: new Headers({

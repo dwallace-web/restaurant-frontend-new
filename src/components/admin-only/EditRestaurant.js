@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import API_URL from '../../helpers/environment';
 export class EditRestaurant extends Component {
   constructor(props) {
     super(props);
@@ -16,16 +16,16 @@ export class EditRestaurant extends Component {
       category: this.category,
     };
 
-    console.log(
-      'test input -->',
-      input,
-      'fetch url--->',
-      `http://localhost:2000/restaurant/${this.props.restaurant.id}`
-    );
+    // console.log(
+    //   'test input -->',
+    //   input,
+    //   'fetch url--->',
+    //   `http://localhost:2000/restaurant/${this.props.restaurant.id}`
+    // );
 
     try {
       // const input = this.state;
-      fetch(`http://localhost:2000/restaurant/${this.props.restaurant.id}`, {
+      fetch(`${API_URL}/restaurant/${this.props.restaurant.id}`, {
         method: 'PUT',
         headers: new Headers({
           'Content-Type': 'application/json',

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import CustomerCard from './CustomerCard';
 import { Grid } from '@material-ui/core';
 
+
 export class CustomerRestaurants extends Component {
   constructor(props) {
     super(props);

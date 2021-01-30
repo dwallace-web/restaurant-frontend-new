@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import CustomerComments from '../customer-view/CustomerComments';
 import CreateComment from '../user/CreateComment';
 import EditRestaurant from './EditRestaurant';
+import API_URL from '../../helpers/environment';
 
 export class RestaurantCard extends Component {
   constructor(props) {
@@ -18,7 +19,7 @@ export class RestaurantCard extends Component {
     // this.getUserRestaurants();
     // console.log('fetch started');
     fetch(
-      `http://localhost:2000/comment/restaurant/${this.props.restaurant.id}`,
+      `https://${API_URL}/comment/restaurant/${this.props.restaurant.id}`,
       {
         headers: new Headers({
           'Content-Type': 'application/json',
@@ -77,11 +78,11 @@ export class RestaurantCard extends Component {
               <p>No users have commented on this restaurant.</p>
             </div>
           ) : (
-            <CustomerComments
-              token={this.props.token}
-              comment={this.state.comment}
-            />
-          )}
+              <CustomerComments
+                token={this.props.token}
+                comment={this.state.comment}
+              />
+            )}
 
           {this.props.login === true ? (
             <div>

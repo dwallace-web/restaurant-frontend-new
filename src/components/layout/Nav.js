@@ -7,6 +7,7 @@ import {
   Redirect,
 } from "react-router-dom";
 import { Grid, Button } from '@material-ui/core';
+import API_URL from '../../helpers/environment';
 
 export class Nav extends Component {
   constructor() {

@@ -8,6 +8,7 @@ import {
   useHistory,
   useLocation
 } from "react-router-dom";
+import API_URL from '../../helpers/environment';
 
 export class SignIn extends Component {
   //this will be a class component
@@ -27,7 +28,7 @@ export class SignIn extends Component {
       password: this.password,
     };
 
-    fetch('http://localhost:2000/user/signin', {
+    fetch(`${API_URL}/user/signin`, {
       method: 'POST',
       headers: new Headers({
         'Content-Type': 'application/json',
@@ -45,9 +46,9 @@ export class SignIn extends Component {
               token: data.sessionToken,
               admin: data.user.restaurantowner,
             })
-          
+
           );
-          this.setState({ active: true})
+          this.setState({ active: true })
         } else {
           throw Error(data.error);
         }
@@ -78,14 +79,14 @@ export class SignIn extends Component {
           <button type="submit"> Submit</button>
         </form>
         {
-            this.state.active === true ? (
-              <div>
-                <Redirect to="/" />
-              </div>
-            )
+          this.state.active === true ? (
+            <div>
+              <Redirect to="/" />
+            </div>
+          )
             :
             ''
-          }
+        }
       </div>
     );
   }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CustomerBioPanel from './CustomerBioPanel';
 import { Typography } from '@material-ui/core'
+import API_URL from '../../helpers/environment';
 
 export class CustomerBio extends Component {
   constructor(props) {
@@ -13,7 +14,7 @@ export class CustomerBio extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:2000/comment/user', {
+    fetch(`${API_URL}/comment/user`, {
       headers: new Headers({
         'Content-Type': 'application/json',
         Authorization: this.props.token,
@@ -35,7 +36,7 @@ export class CustomerBio extends Component {
     // e.preventDefault();
     console.log('works', id);
     try {
-      fetch(`http://localhost:2000/comment/restaurant/${id}`, {
+      fetch(`${API_URL}/comment/restaurant/${id}`, {
         method: 'DELETE',
         headers: new Headers({
           'Content-Type': 'application/json',
