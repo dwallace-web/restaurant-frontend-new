@@ -3,6 +3,7 @@ import CustomerComments from '../customer-view/CustomerComments';
 import CreateComment from '../user/CreateComment';
 import EditRestaurant from './EditRestaurant';
 import API_URL from '../../helpers/environment';
+import { Typography, Button, TextField, Card, CardContent } from '@material-ui/core'
 
 export class RestaurantCard extends Component {
   constructor(props) {
@@ -53,29 +54,24 @@ export class RestaurantCard extends Component {
     return (
       <div>
         <div className="restaurantcard">
-          <h5 className="restaurantname">Name: {name}</h5>
-          <div className="restaurantbuttons">
-            <button onClick={this.toggle}>Edit</button>{' '}
-            <button onClick={this.props.deleteRestaurant.bind(this, id)}>
-              Delete
-            </button>
-          </div>
-          <p className="`restaurantaddress`">Address: {address}</p>
-          <p className="restaurantphone">Phone Number: {phonenumber}</p>
-          <p className="restaurantcat">Category: {category}</p>
+          <Typography className="restaurantname">Name: {name}</Typography>
+          <Typography className="`restaurantaddress`">Address: {address}</Typography>
+          <Typography className="restaurantphone">Phone Number: {phonenumber}</Typography>
+          <Typography className="restaurantcat">Category: {category}</Typography>
         </div>
 
         <div>
           <EditRestaurant
             restaurant={this.props.restaurant}
             token={this.props.token}
+            deleteRestaurant={this.props.deleteRestaurant}
           />
         </div>
 
         <div className="restaurantcomments">
           {this.state.comment.length === 0 ? (
             <div>
-              <p>No users have commented on this restaurant.</p>
+              <Typography>No users have commented on this restaurant.</Typography>
             </div>
           ) : (
               <CustomerComments

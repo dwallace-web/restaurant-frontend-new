@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import API_URL from '../../helpers/environment';
+import { Typography, Button, TextField, Card, CardContent } from '@material-ui/core'
+
 export class EditRestaurant extends Component {
   constructor(props) {
     super(props);
@@ -44,42 +46,48 @@ export class EditRestaurant extends Component {
   };
 
   render() {
+
+    const { id, name, address, phonenumber, category } = this.props.restaurant;
+
     return (
       <div>
         {/* <editRestaurant />
             Warning: findDOMNode is deprecated in StrictMode. findDOMNode was passed an instance of Transition which is inside StrictMode. Instead, add a ref directly to the element you want to reference. Learn more about using refs safely here: https://reactjs.org/link/strict-mode-find-node
             */}
-        <p>Edit this restaurant</p>
+        <Typography>Edit this restaurant</Typography>
         <form onSubmit={this.editRestaurant}>
-          <input
+          <TextField
             placeholder="Name"
             type="text"
             name="name"
             required
             onChange={(e) => (this.name = e.target.value)}
           />
-          <input
+          <TextField
             placeholder="Address"
             type="text"
             name="address"
             required
             onChange={(e) => (this.address = e.target.value)}
           />
-          <input
+          <TextField
             placeholder="phone number"
             type="text"
             name="phonenumber"
             onChange={(e) => (this.phonenumber = e.target.value)}
           />
-          <input
+          <TextField
             placeholder="category"
             type="text"
             name="category"
             required
             onChange={(e) => (this.category = e.target.value)}
           />
-          <button type="submit"> Submit</button>
+          <Button type="submit">Edit Restaurant </Button>
         </form>
+        <Button onClick={this.props.deleteRestaurant.bind(this, id)}>
+          Delete Restaurant
+        </Button>
       </div>
     );
   }

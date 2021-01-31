@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import API_URL from '../../helpers/environment';
+import { Typography, Button, TextField, Card, CardContent } from '@material-ui/core'
 
 export class CreateRestaurant extends Component {
   constructor(props) {
@@ -34,8 +35,8 @@ export class CreateRestaurant extends Component {
       })
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
           this.setState({ createdPlace: true });
+          console.log(data);
         });
     } catch (error) {
       console.log('error', error);
@@ -45,33 +46,33 @@ export class CreateRestaurant extends Component {
   render() {
     return (
       <div>
-        <h4>Create Restaurant </h4>
+        <Typography>Create Restaurant </Typography>
         <form onSubmit={this.createRestaurant}>
-          <input
+          <TextField
             placeholder="Name"
             type="text"
             name="name"
             onChange={(e) => (this.name = e.target.value)}
           />
-          <input
+          <TextField
             placeholder="Address"
             type="text"
             name="address"
             onChange={(e) => (this.address = e.target.value)}
           />
-          <input
+          <TextField
             placeholder="phone number"
             type="tel"
             name="phonenumber"
             onChange={(e) => (this.phonenumber = e.target.value)}
           />
-          <input
+          <TextField
             placeholder="category"
             type="text"
             name="category"
             onChange={(e) => (this.category = e.target.value)}
           />
-          <button type="submit"> Submit</button>
+          <Button type="submit">Add Restaurant</Button>
         </form>
       </div>
     );

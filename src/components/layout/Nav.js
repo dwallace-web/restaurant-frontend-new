@@ -29,21 +29,21 @@ export class Nav extends Component {
       <div className="navigation" maxWidth="sm">
         <h4>Restaurant App </h4>
         <Grid container spacing={3}>
-          <Grid item xs={3}>
+          <Grid item xs={2}>
             <Link to={'/'}>
               <Button variant="contained" color="primary">
                 Home
               </Button>
             </Link>
           </Grid>
-          <Grid item xs={3}>
+          <Grid item xs={2}>
             <Link to={'/signup'}>
               <Button variant="contained" color="primary">
                 Sign Up
           </Button>
             </Link>
           </Grid>
-          <Grid item xs={3}>
+          <Grid item xs={2}>
 
             <Link to={'/signin'}>
 
@@ -52,7 +52,16 @@ export class Nav extends Component {
             </Button>
             </Link>
           </Grid>
-          <Grid item xs={3}>
+          {/* <Grid item xs={2}>
+
+            <Link to={'/mycomments'}>
+
+              <Button variant="contained" color="primary">
+                My Comments
+            </Button>
+            </Link>
+          </Grid> */}
+          <Grid item xs={2}>
             <Link to={' '} onClick={
               () => {
                 localStorage.clear()

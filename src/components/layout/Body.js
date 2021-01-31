@@ -5,6 +5,7 @@ import Home from './Home';
 import Nav from './Nav';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Container } from '@material-ui/core';
+import CustomerBio from '../customer-view/CustomerBio';
 
 export class Body extends Component {
 
@@ -38,6 +39,7 @@ export class Body extends Component {
               <Route exact path="/" component={Home} />
               <Route exact path="/signup" component={SignUp} />
               <Route exact path="/signin" component={SignIn} />
+              {/* <Route exact path="/mycomments" component={CustomerBio} /> */}
               {/* <Route exact path="/" 
               component={ (props) => <Home {...props} login={this.state.login} token={this.state.token} admin={this.state.admin} tokenFinder={this.tokenFinder}  /> }
               /> */}

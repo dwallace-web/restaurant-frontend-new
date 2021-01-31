@@ -3,7 +3,8 @@ import CustomerBio from '../customer-view/CustomerBio';
 import CreateRestaurant from './CreateRestaurant';
 import ViewRestaurants from './ViewRestaurants';
 import API_URL from '../../helpers/environment';
-
+import CustomerRestaurants from '../customer-view/CustomerRestaurants'
+import { Typography, Button, Card, CardContent } from '@material-ui/core'
 
 export class AdminPanel extends Component {
   constructor(props) {
@@ -59,11 +60,13 @@ export class AdminPanel extends Component {
 
 
   render() {
+    <CustomerBio login={this.props.login} token={this.props.token} />
     return (
       <div>
-        <h1>Admin Only</h1>
+        <Typography>Admin Panel </Typography>
         <CreateRestaurant login={this.props.login} token={this.props.token} />
         <br />
+        <Typography>Your Restaurants</Typography>
         <ViewRestaurants
           login={this.props.login}
           token={this.props.token}
@@ -71,6 +74,8 @@ export class AdminPanel extends Component {
           deleteRestaurant={this.deleteRestaurant}
         />
         <CustomerBio login={this.props.login} token={this.props.token} />
+        {/* <Typography>Restaurants on our Platform</Typography> */}
+        {/* <CustomerRestaurants login={this.props.login} token={this.props.token} /> */}
       </div>
     );
   }
