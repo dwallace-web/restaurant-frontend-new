@@ -14,12 +14,13 @@ export class CustomerRestaurants extends Component {
     return (
       <Grid
         container
+        spacing={3}
         direction="column"
         justify="center"
-        alignItems="center"
+      // alignItems="center"
       >
 
-        <Typography variant="h4">Some fine restaurants</Typography>
+        <Typography variant="h4" align="center">Some fine restaurants</Typography>
 
         {
           this.props.data.map((restaurant) => (

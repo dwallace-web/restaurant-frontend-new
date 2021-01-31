@@ -42,16 +42,11 @@ export class Home extends Component {
 
   render() {
     return (
-
       <div>
         {this.state.admin === true ? (
-          <div>
-            <AdminPanel login={this.state.login} token={this.state.token} />
-          </div>
+          <AdminPanel login={this.state.login} token={this.state.token} />
         ) : (
-            <div>
-              <Customers login={this.state.login} token={this.state.token} />
-            </div>
+            <Customers login={this.state.login} token={this.state.token} />
           )}
       </div>
     );

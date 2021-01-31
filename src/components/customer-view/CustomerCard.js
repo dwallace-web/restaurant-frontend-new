@@ -47,46 +47,49 @@ export class CustomerCard extends Component {
     // const classes = makeStyles();
 
     return (
-      <Card>
-        <CardContent>
-          <Grid item xs={12} sm={6}>
-            <Typography gutterBottom className="restaurantname">{name}</Typography>
-            <Typography gutterBottom className="restaurantaddress">{address}</Typography>
-            <Typography className="restaurantphone">{phonenumber}</Typography>
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <Typography className="restaurantcategory">{category}</Typography>
-          </Grid>
-          <Grid item>
-            <div className="restaurantcomments">
-              {this.state.comment.length < 1 ? (
-                <div>
-                  <Typography>No users have commented on this restaurant. </Typography>
-                </div>
-              ) : (
-                  <div>
-                    <Typography variant="h6" gutterBottom>Customer Comments</Typography>
-                    <CustomerComments
+      <Grid item>
+
+        <Card>
+          <CardContent>
+            <Grid Container>
+              <Grid item xs={12} sm={6}>
+                <Typography gutterBottom className="restaurantname">{name}</Typography>
+                <Typography gutterBottom className="restaurantaddress">{address}</Typography>
+                <Typography className="restaurantphone">{phonenumber}</Typography>
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <Typography className="restaurantcategory">{category}</Typography>
+              </Grid>
+              <Grid item>
+                <div className="restaurantcomments">
+                  {this.state.comment.length < 1 ? (
+                    <div>
+                      <Typography>No users have commented on this restaurant. </Typography>
+                    </div>
+                  ) : (
+                      <div>
+                        <Typography variant="h6" gutterBottom>Customer Comments</Typography>
+                        <CustomerComments
+                          token={this.props.token}
+                          comment={this.state.comment}
+                        />
+                      </div>
+                    )}
+
+                  {this.props.login === true ? (
+                    <CreateComment
                       token={this.props.token}
-                      comment={this.state.comment}
+                      restaurant={this.props.restaurant}
                     />
-                  </div>
-                )}
-
-              {this.props.login === true ? (
-                <CreateComment
-                  token={this.props.token}
-                  restaurant={this.props.restaurant}
-                />
-              ) : (
-                  <br />
-                )}
-            </div>
-          </Grid>
-        </CardContent>
-
-
-      </Card>
+                  ) : (
+                      <br />
+                    )}
+                </div>
+              </Grid>
+            </Grid>
+          </CardContent>
+        </Card>
+      </Grid>
     );
   }
 }

@@ -42,7 +42,7 @@ export class Customers extends Component {
 
   render() {
     return (
-      <Grid container justify="center" spacing={3}>
+      <Grid container justify="center" spacing={5}>
 
         {this.props.login === true ? (
           <Grid item>
