@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import CustomerCard from './CustomerCard';
-import { Grid } from '@material-ui/core';
+import { Grid, Typography } from '@material-ui/core';
 
 
 export class CustomerRestaurants extends Component {
@@ -14,13 +14,12 @@ export class CustomerRestaurants extends Component {
     return (
       <Grid
         container
-        spacing={2}
         direction="column"
         justify="center"
         alignItems="center"
       >
 
-        <h1>View Restaurants</h1>
+        <Typography variant="h4">Some fine restaurants</Typography>
 
         {
           this.props.data.map((restaurant) => (

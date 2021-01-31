@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import CustomerBio from './CustomerBio';
 import CustomerRestaurants from './CustomerRestaurants';
-import { Typography } from '@material-ui/core'
+import { Typography, Grid, } from '@material-ui/core'
 import API_URL from '../../helpers/environment';
 
 export class Customers extends Component {
@@ -42,15 +42,16 @@ export class Customers extends Component {
 
   render() {
     return (
-      <div>
+      <Grid container justify="center" spacing={3}>
+
         {this.props.login === true ? (
-          <div>
+          <Grid item>
             <CustomerBio token={this.props.token} login={this.props.login} />
-          </div>
+          </Grid>
         ) : (
-            <div className="notice">
-              <Typography>Sign In or Sign Up to create, edit or delete comments!</Typography>
-            </div>
+            <Grid item>
+              <Typography variant="h6">Sign In or Sign Up to create, edit or delete comments!</Typography>
+            </Grid>
           )}
 
         <CustomerRestaurants
@@ -58,7 +59,7 @@ export class Customers extends Component {
           token={this.props.token}
           login={this.props.login}
         />
-      </div>
+      </Grid>
     );
   }
 }

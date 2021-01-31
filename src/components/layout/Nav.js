@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
-  Switch,
-  Route,
   Link,
   Redirect,
 } from "react-router-dom";
-import { Grid, Button } from '@material-ui/core';
-import API_URL from '../../helpers/environment';
+import { Grid, Button, Typography } from '@material-ui/core';
 
 export class Nav extends Component {
   constructor() {
@@ -26,51 +23,44 @@ export class Nav extends Component {
 
   render() {
     return (
-      <div className="navigation" maxWidth="sm">
-        <h4>Restaurant App </h4>
-        <Grid container spacing={3}>
-          <Grid item xs={2}>
+      <Grid container justify="center">
+        <Grid container item lg={4} justify="center">
+          <Grid item>
+            <Typography variant="h2">Restaurant Reviews Demo </Typography>
+          </Grid>
+        </Grid>
+        <Grid container item lg={8} align="center">
+          <Grid item xs={3}>
             <Link to={'/'}>
               <Button variant="contained" color="primary">
                 Home
               </Button>
             </Link>
           </Grid>
-          <Grid item xs={2}>
+          <Grid item xs={3}>
             <Link to={'/signup'}>
               <Button variant="contained" color="primary">
                 Sign Up
           </Button>
             </Link>
           </Grid>
-          <Grid item xs={2}>
-
+          <Grid item xs={3}>
             <Link to={'/signin'}>
-
               <Button variant="contained" color="primary">
                 Sign In
             </Button>
             </Link>
           </Grid>
-          {/* <Grid item xs={2}>
-
-            <Link to={'/mycomments'}>
-
-              <Button variant="contained" color="primary">
-                My Comments
-            </Button>
-            </Link>
-          </Grid> */}
-          <Grid item xs={2}>
-            <Link to={' '} onClick={
+          <Grid item xs={3}>
+            <Link onClick={
               () => {
                 localStorage.clear()
                 // this.setState({ logout: true})
                 this.handleLogout()
               }}>
-              <Button variant="contained" color="primary">
+              <Button variant="outlined" color="secondary" disableElevation>
                 Log Out
-            </Button>
+              </Button>
             </Link>
           </Grid>
         </Grid>
@@ -85,7 +75,7 @@ export class Nav extends Component {
               <Redirect to="/signin" />
             </div>
         }
-      </div>
+      </Grid>
     );
   }
 }
