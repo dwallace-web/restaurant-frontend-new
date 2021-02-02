@@ -14,22 +14,20 @@ export class Body extends Component {
     return (
       <Container>
         <BrowserRouter>
-          <Grid container justify="center">
-            <Nav />
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/signup" component={SignUp} />
-              <Route exact path="/signin" component={SignIn} />
-              {/* <Route exact path="/mycomments" component={CustomerBio} /> */}
-              {/* <Route exact path="/" 
-              component={ (props) => <Home {...props} login={this.state.login} token={this.state.token} admin={this.state.admin} tokenFinder={this.tokenFinder}  /> }
-              /> */}
-              {/* <Route exact path="/signup" component={ (props) => <SignUp {...props} login={this.state.login} token={this.state.token} admin={this.state.admin} tokenFinder={this.tokenFinder} /> } /> */}
-              {/* <Route exact path="/signin" component={ (props) => <SignIn {...props} login={this.state.login} token={this.state.token} admin={this.state.admin} tokenFinder={this.tokenFinder} /> } /> */}
-            </Switch>
+          <Grid container direction="column" justify="center" alignItems="center" spacing={3}>
+            <Grid container item spacing={3}>
+              <Nav />
+            </Grid>
+            <Grid container item direction="column" justify="center" alignItems="center">
+              <Switch>
+                <Route exact path="/" component={Home} />
+                <Route exact path="/signup" component={SignUp} />
+                <Route exact path="/signin" component={SignIn} />
+              </Switch>
+            </Grid>
           </Grid>
         </BrowserRouter>
-      </Container>
+      </Container >
 
     );
   }

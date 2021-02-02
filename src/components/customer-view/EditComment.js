@@ -56,24 +56,26 @@ export class EditComment extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{ marginTop: 16 }}>
         <Typography>Edit Comment</Typography>
         {
           this.state.commentedit === false
             ?
             <div>
-              <form onSubmit={this.editComment}>
+              <form onSubmit={this.editComment} style={{ marginBottom: 10 }}>
                 <TextField
-                  placeholder="title"
+                  placeholder={this.props.comment.title}
                   type="text"
                   name="title"
                   required
                   onChange={(e) => (this.title = e.target.value)}
                 />
+
                 <TextField
-                  placeholder="Body"
+                  placeholder={this.props.comment.body}
                   type="text"
                   name="body"
+                  fullWidth
                   required
                   onChange={(e) => (this.body = e.target.value)}
                 />
@@ -82,7 +84,7 @@ export class EditComment extends Component {
             </div>
             :
             <div>
-              <Typography>Comment was edited!</Typography>
+              <Typography>Comment was updated.</Typography>
             </div>
         }
 

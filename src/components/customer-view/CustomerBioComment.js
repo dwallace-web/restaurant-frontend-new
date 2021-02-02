@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import EditComment from './EditComment';
 import { Typography, Button, Card, CardContent } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles';
+import { Subtitles } from '@material-ui/icons';
 
 export class CustomerBioComment extends Component {
   constructor(props) {

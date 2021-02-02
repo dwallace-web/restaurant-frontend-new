@@ -23,35 +23,35 @@ export class Nav extends Component {
 
   render() {
     return (
-      <Grid container justify="center">
-        <Grid container item lg={4} justify="center">
+      <Grid container justify="center" spacing={6}>
+        <Grid container item md={4} justify="center">
           <Grid item>
             <Typography variant="h2">Restaurant Reviews Demo </Typography>
           </Grid>
         </Grid>
-        <Grid container item lg={8} align="center">
-          <Grid item xs={3}>
+        <Grid container item md={8} alignItems="center" direction="row" justify="center" spacing={4}>
+          <Grid item >
             <Link to={'/'}>
               <Button variant="contained" color="primary">
                 Home
               </Button>
             </Link>
           </Grid>
-          <Grid item xs={3}>
+          <Grid item >
             <Link to={'/signup'}>
               <Button variant="contained" color="primary">
                 Sign Up
           </Button>
             </Link>
           </Grid>
-          <Grid item xs={3}>
+          <Grid item >
             <Link to={'/signin'}>
               <Button variant="contained" color="primary">
                 Sign In
             </Button>
             </Link>
           </Grid>
-          <Grid item xs={3}>
+          <Grid item >
             <Link onClick={
               () => {
                 localStorage.clear()

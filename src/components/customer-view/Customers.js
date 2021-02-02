@@ -64,7 +64,7 @@ export class Customers extends Component {
           )
           :
           (
-            <Grid container direction="column" justify="center" spacing={5} >
+            <Grid container direction="column" alignItems="center" spacing={5} style={{ margin: 20 }}>
               <Grid item>
                 <Typography variant="h6">Sign In or Sign Up to create, edit or delete comments!</Typography>
               </Grid>

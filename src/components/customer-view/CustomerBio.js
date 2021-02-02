@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import CustomerBioPanel from './CustomerBioPanel';
-import { Typography } from '@material-ui/core'
+import { Typography, Grid } from '@material-ui/core'
 import API_URL from '../../helpers/environment';
 
 export class CustomerBio extends Component {
@@ -55,7 +55,7 @@ export class CustomerBio extends Component {
 
   render() {
     return (
-      <div>
+      <Grid alignItems="center" spacing={3}>
         <Typography variant="h4" align="center">My comments</Typography>
 
         <CustomerBioPanel
@@ -63,7 +63,7 @@ export class CustomerBio extends Component {
           deleteComment={this.deleteComment}
           token={this.props.token}
         />
-      </div>
+      </Grid>
     );
   }
 }
