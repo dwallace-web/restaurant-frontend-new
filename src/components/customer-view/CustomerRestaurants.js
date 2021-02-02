@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import CustomerCard from './CustomerCard';
 import { Grid, Typography } from '@material-ui/core';
-
+import { makeStyles } from '@material-ui/core/styles';
 
 export class CustomerRestaurants extends Component {
   constructor(props) {
     super(props);
   }
+
 
   render() {
     // console.log('customers only', this.props.data);

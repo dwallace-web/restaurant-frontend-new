@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import EditComment from './EditComment';
 import { Typography, Button, Card, CardContent } from '@material-ui/core'
+import { withStyles } from '@material-ui/core/styles';
 
 export class CustomerBioComment extends Component {
   constructor(props) {
     super(props);
+
   }
 
   render() {
@@ -13,9 +15,7 @@ export class CustomerBioComment extends Component {
 
     return (
       <Card>
-
         <CardContent>
-
           <Typography>{title}</Typography>
           <Typography>{body}</Typography>
           <EditComment token={this.props.token} comment={this.props.comment} />

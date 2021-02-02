@@ -58,7 +58,7 @@ export class Nav extends Component {
                 // this.setState({ logout: true})
                 this.handleLogout()
               }}>
-              <Button variant="outlined" color="secondary" disableElevation>
+              <Button variant="contained" color="secondary" disableElevation>
                 Log Out
               </Button>
             </Link>

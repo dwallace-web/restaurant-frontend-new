@@ -56,7 +56,7 @@ export class CustomerBio extends Component {
   render() {
     return (
       <div>
-        <Typography>My Comments: </Typography>
+        <Typography variant="h4" align="center">My comments</Typography>
 
         <CustomerBioPanel
           comment={this.state.comment}

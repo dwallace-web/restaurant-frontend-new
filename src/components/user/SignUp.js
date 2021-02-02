@@ -99,6 +99,7 @@ export class SignUp extends Component {
             onChange={(e) => (this.username = e.target.value)}
           />
           <TextField
+            pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
             placeholder="password"
             type="password"
             name="password"

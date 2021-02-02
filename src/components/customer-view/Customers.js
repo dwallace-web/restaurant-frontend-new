@@ -42,23 +42,48 @@ export class Customers extends Component {
 
   render() {
     return (
-      <Grid container justify="center" spacing={5}>
+      <Grid container justify="center" spacing={5} >
 
-        {this.props.login === true ? (
-          <Grid item>
-            <CustomerBio token={this.props.token} login={this.props.login} />
-          </Grid>
-        ) : (
-            <Grid item>
-              <Typography variant="h6">Sign In or Sign Up to create, edit or delete comments!</Typography>
+        {this.props.login === true
+
+          ?
+
+          (
+            <Grid container justify="center" spacing={5}>
+              <Grid item>
+                <CustomerBio token={this.props.token} login={this.props.login} />
+              </Grid>
+              <Grid item>
+                <CustomerRestaurants
+                  data={this.state.data}
+                  token={this.props.token}
+                  login={this.props.login}
+                />
+              </Grid>
             </Grid>
-          )}
+          )
+          :
+          (
+            <Grid container direction="column" justify="center" spacing={5} >
+              <Grid item>
+                <Typography variant="h6">Sign In or Sign Up to create, edit or delete comments!</Typography>
+              </Grid>
+              <Grid item>
+                <CustomerRestaurants
+                  data={this.state.data}
+                  token={this.props.token}
+                  login={this.props.login}
+                />
+              </Grid>
+            </Grid>
+          )
+        }
 
-        <CustomerRestaurants
+        {/* <CustomerRestaurants
           data={this.state.data}
           token={this.props.token}
           login={this.props.login}
-        />
+        /> */}
       </Grid>
     );
   }
