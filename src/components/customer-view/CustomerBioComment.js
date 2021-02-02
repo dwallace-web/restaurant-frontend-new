@@ -17,11 +17,11 @@ export class CustomerBioComment extends Component {
     return (
       <Card>
         <CardContent>
-          <Typography>{title}</Typography>
-          <Typography>{body}</Typography>
+          <Typography variant="subtitle2">{title}</Typography>
+          <Typography >{body}</Typography>
           <EditComment token={this.props.token} comment={this.props.comment} />
-          <Button onClick={this.props.deleteComment.bind(this, id)}>
-            Delete Comment{' '}
+          <Button onClick={this.props.deleteComment.bind(this, id)} variant="contained" color="secondary">
+            Doubleclick to delete comment
           </Button>
         </CardContent>
       </Card>

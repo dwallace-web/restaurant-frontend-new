@@ -9,6 +9,7 @@ export class CustomerBio extends Component {
 
     this.state = {
       comment: [],
+      deleteme: false,
       deletedcomment: false,
     };
   }
@@ -35,21 +36,26 @@ export class CustomerBio extends Component {
   deleteComment = (id) => {
     // e.preventDefault();
     console.log('works', id);
-    try {
-      fetch(`${API_URL}/comment/restaurant/${id}`, {
-        method: 'DELETE',
-        headers: new Headers({
-          'Content-Type': 'application/json',
-          Authorization: this.props.token,
-        }),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          console.log(data);
-          this.setState({ deletedcomment: true });
-        });
-    } catch (error) {
-      console.log('error', error);
+    if (this.state.deleteme === false) {
+      this.setState({ deleteme: true })
+      console.log('prep to delete')
+    } else {
+      try {
+        fetch(`${API_URL}/comment/restaurant/${id}`, {
+          method: 'DELETE',
+          headers: new Headers({
+            'Content-Type': 'application/json',
+            Authorization: this.props.token,
+          }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            this.setState({ deletedcomment: true });
+          });
+      } catch (error) {
+        console.log('error', error);
+      }
     }
   };
 

@@ -18,7 +18,7 @@ export class CustomerRestaurants extends Component {
         spacing={3}
         direction="column"
         justify="center"
-      // alignItems="center"
+      // alignItems="flex-end"
       >
 
         <Typography variant="h4" align="center">Some fine restaurants</Typography>

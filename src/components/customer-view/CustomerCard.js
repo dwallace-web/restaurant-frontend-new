@@ -51,7 +51,7 @@ export class CustomerCard extends Component {
 
         <Card>
           <CardContent>
-            <Grid Container>
+            <Grid container>
               <Grid item xs={12} sm={6}>
                 <Typography gutterBottom className="restaurantname">{name}</Typography>
                 <Typography gutterBottom className="restaurantaddress">{address}</Typography>
