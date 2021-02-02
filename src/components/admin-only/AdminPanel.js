@@ -62,8 +62,8 @@ export class AdminPanel extends Component {
   render() {
     <CustomerBio login={this.props.login} token={this.props.token} />
     return (
-      <div>
-        <Typography>Admin Panel </Typography>
+      <div style={{ marginBottom: 10 }} >
+        <Typography>Restaurant Administration Panel </Typography>
         <CreateRestaurant login={this.props.login} token={this.props.token} />
         <br />
         <Typography>Your Restaurants</Typography>

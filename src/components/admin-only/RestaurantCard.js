@@ -53,14 +53,14 @@ export class RestaurantCard extends Component {
 
     return (
       <div>
-        <div className="restaurantcard">
+        <div className="restaurantcard" style={{ marginBottom: 10 }} >
           <Typography className="restaurantname">Name: {name}</Typography>
           <Typography className="`restaurantaddress`">Address: {address}</Typography>
           <Typography className="restaurantphone">Phone Number: {phonenumber}</Typography>
           <Typography className="restaurantcat">Category: {category}</Typography>
         </div>
 
-        <div>
+        <div style={{ marginBottom: 10 }} >
           <EditRestaurant
             restaurant={this.props.restaurant}
             token={this.props.token}
@@ -68,7 +68,7 @@ export class RestaurantCard extends Component {
           />
         </div>
 
-        <div className="restaurantcomments">
+        <div className="restaurantcomments" style={{ marginBottom: 10 }} >
           {this.state.comment.length === 0 ? (
             <div>
               <Typography>No users have commented on this restaurant.</Typography>
@@ -81,7 +81,7 @@ export class RestaurantCard extends Component {
             )}
 
           {this.props.login === true ? (
-            <div>
+            <div style={{ marginBottom: 10 }} >
               <CreateComment
                 token={this.props.token}
                 restaurant={this.props.restaurant}

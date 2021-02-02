@@ -45,7 +45,7 @@ export class CreateRestaurant extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{ marginBottom: 10 }} >
         <Typography>Create Restaurant </Typography>
         <form onSubmit={this.createRestaurant}>
           <TextField
