@@ -5,6 +5,7 @@ import ViewRestaurants from './ViewRestaurants';
 import API_URL from '../../helpers/environment';
 import CustomerRestaurants from '../customer-view/CustomerRestaurants'
 import { Typography, } from '@material-ui/core'
+import RestaurantDisplay from './RestaurantDisplay';
 
 type AdminProps = {
   login: boolean,
@@ -77,7 +78,13 @@ class AdministratorPanel extends React.Component <AdminProps, AdminState> {
         <CreateRestaurant login={this.props.login} token={this.props.token} />
         <br />
         <Typography>Your Restaurants</Typography>
-        <ViewRestaurants
+        {/* <ViewRestaurants
+          login={this.props.login}
+          token={this.props.token}
+          data={this.state.data}
+          deleteRestaurant={this.deleteRestaurant}
+        /> */}
+        <RestaurantDisplay
           login={this.props.login}
           token={this.props.token}
           data={this.state.data}
