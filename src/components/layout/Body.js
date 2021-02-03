@@ -14,7 +14,9 @@ export class Body extends Component {
     return (
       <Container>
         <BrowserRouter>
-          <Grid container direction="column" justify="center" alignItems="center" spacing={3}>
+          <Grid container direction="column" justify="center" alignItems="center" spacing={3}
+            style={{ backgroundColor: 'aqua' }}
+          >
             <Grid container item spacing={3}>
               <Nav />
             </Grid>
