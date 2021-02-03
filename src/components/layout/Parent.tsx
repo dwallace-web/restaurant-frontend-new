@@ -5,6 +5,7 @@ import Home from './Home';
 import Nav from './Nav';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Container, Grid } from '@material-ui/core';
+import NewHome from './NewHome';
 
 class Parent extends React.Component {
 
@@ -19,7 +20,7 @@ class Parent extends React.Component {
             </Grid>
             <Grid container item direction="column" justify="center" alignItems="center">
               <Switch>
-                <Route exact path="/" component={Home} />
+                <Route exact path="/" component={NewHome} />
                 <Route exact path="/signup" component={SignUp} />
                 <Route exact path="/signin" component={SignIn} />
               </Switch>

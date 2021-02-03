@@ -21,7 +21,7 @@ class NewHome extends React.Component <HomeProps, HomeState> {
     this.state = {
       login: false,
       admin: false,
-      token: JSON.parse(localStorage.getItem('token'))?.token || 'no-token',
+      token: null,
     };
   }
 
@@ -30,7 +30,7 @@ class NewHome extends React.Component <HomeProps, HomeState> {
   }
 
   tokenFinder() {
-    const token = JSON.parse(localStorage.getItem('token'));
+    const token = JSON.parse(localStorage.getItem('token')!);
 
     // if(!token)
 
@@ -38,12 +38,12 @@ class NewHome extends React.Component <HomeProps, HomeState> {
       this.setState({
         login: true,
         admin: true,
-        token: JSON.parse(localStorage.getItem('token')).token,
+        token: JSON.parse(localStorage.getItem('token')!).token,
       });
     } else if (token && token.login === true) {
       this.setState({
         login: true,
-        token: JSON.parse(localStorage.getItem('token')).token,
+        token: JSON.parse(localStorage.getItem('token')!).token,
       });
     } else {
       this.setState({ login: false, admin: false });
