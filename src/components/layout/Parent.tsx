@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import SignIn from '../user/SignIn';
 import SignUp from '../user/SignUp';
-import Home from './Home';
 import Nav from './Nav';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Container, Grid } from '@material-ui/core';

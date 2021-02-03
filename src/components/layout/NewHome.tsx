@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
+import AdministratorPanel from '../admin-only/AdministratorPanel';
 import AdminPanel from '../admin-only/AdminPanel';
 import Customers from '../customer-view/Customers';
-import { Grid, Typography } from '@material-ui/core';
-import API_URL from '../../helpers/environment';
 
 type HomeProps = {
 
@@ -54,7 +53,8 @@ class NewHome extends React.Component <HomeProps, HomeState> {
     return (
       <div>
         {this.state.admin === true ? (
-          <AdminPanel login={this.state.login} token={this.state.token} />
+          /* <AdminPanel login={this.state.login} token={this.state.token} /> */
+          <AdministratorPanel login={this.state.login} token={this.state.token} />
         ) : (
             <Customers login={this.state.login} token={this.state.token} />
           )}
