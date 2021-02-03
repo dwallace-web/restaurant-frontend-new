@@ -5,10 +5,8 @@ import Home from './Home';
 import Nav from './Nav';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Container, Grid } from '@material-ui/core';
-import CustomerBio from '../customer-view/CustomerBio';
-import Navigation from './Navigation';
 
-export class Body extends Component {
+class Parent extends React.Component {
 
   //on click function to render the body / visit component / route to update the state?
   render() {
@@ -17,8 +15,7 @@ export class Body extends Component {
         <BrowserRouter>
           <Grid container direction="column" justify="center" alignItems="center" spacing={3}         >
             <Grid container item spacing={3}>
-              {/* <Nav /> */}
-              <Navigation />
+              <Nav />
             </Grid>
             <Grid container item direction="column" justify="center" alignItems="center">
               <Switch>
@@ -35,4 +32,4 @@ export class Body extends Component {
   }
 }
 
-export default Body;
+export default Parent;
