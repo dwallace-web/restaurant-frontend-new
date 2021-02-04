@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import NewRestaurantCard from './NewRestaurantCard';
 import RestaurantCard from './RestaurantCard';
 
 type RestaurantDisplayProps = {
@@ -24,7 +25,15 @@ class RestaurantDisplay extends React.Component <RestaurantDisplayProps, Restaur
     // console.log(this.props.data);
 
     return this.props.data.map((restaurant: any) => (
-      <RestaurantCard
+      /* <RestaurantCard
+        token={this.props.token}
+        key={restaurant.id}
+        restaurant={restaurant}
+        login={this.props.login}
+        deleteRestaurant={this.props.deleteRestaurant}
+      /> */
+
+      <NewRestaurantCard 
         token={this.props.token}
         key={restaurant.id}
         restaurant={restaurant}
