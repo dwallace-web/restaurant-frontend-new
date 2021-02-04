@@ -4,20 +4,45 @@ import { Typography, Button, TextField, Card, CardContent } from '@material-ui/c
 
 type NewResProps = {
   login: boolean,
-  token: boolean
-  
+  token: string,
+
 }
+//these are types for the state variable
 
 type NewResState = {
   createdPlace: boolean,
+  name: string,
+  address: string,
+  phonenumber: string,
+  category: string,
 }
 
-class CreateNewRestaurant extends React.Component < NewResProps, NewResState > {
+class CreateNewRestaurant extends React.Component <NewResProps, NewResState> {
   constructor(props: NewResProps) {
     super(props);
     this.state = {
       createdPlace: false,
+      name: '',
+      address: '',
+      phonenumber: '',
+      category: '',
     }
+  }
+
+
+  setName = (e: any) => {
+    this.setState({name: e.target.value})
+  }
+
+  setAddress = (e: any) => {
+    this.setState({address: e.target.value})
+  }
+  
+  setPhonenumber = (e: any) => {
+    this.setState({phonenumber: e.target.value})
+  }
+  setCategory = (e: any) => {
+    this.setState({category: e.target.value})
   }
 
   createRestaurant = (e: any) => {
@@ -25,10 +50,10 @@ class CreateNewRestaurant extends React.Component < NewResProps, NewResState > {
     console.log('works');
 
     const input = {
-      name: this.name,
-      address: this.address,
-      phonenumber: this.phonenumber,
-      category: this.category,
+      name: this.state.name,
+      address: this.state.address,
+      phonenumber: this.state.phonenumber,
+      category: this.state.category,
     };
 
     console.log('test input -->', input);
@@ -37,10 +62,10 @@ class CreateNewRestaurant extends React.Component < NewResProps, NewResState > {
       // const input = this.state;
       fetch(`${API_URL}/restaurant/`, {
         method: 'POST',
-        headers: new Headers({
+        headers: {
           'Content-Type': 'application/json',
-          Authorization: this.props.token,
-        }),
+          'Authorization': this.props.token,
+        },
         body: JSON.stringify(input),
       })
         .then((response) => response.json())
@@ -62,25 +87,25 @@ class CreateNewRestaurant extends React.Component < NewResProps, NewResState > {
             placeholder="Name"
             type="text"
             name="name"
-            onChange={(e) => (this.name = e.target.value)}
+            onChange={this.setName.bind(this)}
           />
           <TextField
             placeholder="Address"
             type="text"
             name="address"
-            onChange={(e) => (this.address = e.target.value)}
+            onChange={this.setAddress.bind(this)}
           />
           <TextField
             placeholder="phone number"
             type="tel"
             name="phonenumber"
-            onChange={(e) => (this.phonenumber = e.target.value)}
+            onChange={this.setPhonenumber.bind(this)}
           />
           <TextField
             placeholder="category"
             type="text"
             name="category"
-            onChange={(e) => (this.category = e.target.value)}
+            onChange={this.setCategory.bind(this)}
           />
           <Button type="submit">Add Restaurant</Button>
         </form>
