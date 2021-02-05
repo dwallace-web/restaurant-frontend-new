@@ -4,6 +4,7 @@ import CreateComment from '../user/CreateComment';
 import EditRestaurant from './EditRestaurant';
 import API_URL from '../../helpers/environment';
 import { Typography, Button, TextField, Card, CardContent } from '@material-ui/core'
+import EditRestaurantView from './EditRestaurantView';
 
 type NewCardProps = {
   login: boolean,
@@ -79,11 +80,18 @@ class NewRestaurantCard extends React.Component <NewCardProps, NewCardState> {
         </div>
 
         <div style={{ marginBottom: 10 }} >
-          <EditRestaurant
+          {/* <EditRestaurant
             restaurant={this.props.restaurant}
             token={this.props.token}
             deleteRestaurant={this.props.deleteRestaurant}
+          /> */}
+          <EditRestaurantView
+          restaurant={this.props.restaurant}
+          token={this.props.token}
+          deleteRestaurant={this.props.deleteRestaurant}
           />
+
+          
         </div>
 
         <div className="restaurantcomments" style={{ marginBottom: 10 }} >
