@@ -5,6 +5,8 @@ import EditRestaurant from './EditRestaurant';
 import API_URL from '../../helpers/environment';
 import { Typography, Button, TextField, Card, CardContent } from '@material-ui/core'
 import EditRestaurantView from './EditRestaurantView';
+import CreateNewComment from '../user/CreateNewComment';
+import CustomerCommentView from '../customer-view/CustomerCommentView';
 
 type NewCardProps = {
   login: boolean,
@@ -100,15 +102,23 @@ class NewRestaurantCard extends React.Component <NewCardProps, NewCardState> {
               <Typography>No users have commented on this restaurant.</Typography>
             </div>
           ) : (
-              <CustomerComments
+              <CustomerCommentView 
+              token={this.props.token}
+              comment={this.state.comment}
+              />
+              /* <CustomerComments
                 token={this.props.token}
                 comment={this.state.comment}
-              />
+              /> */
             )}
 
           {this.props.login === true ? (
             <div style={{ marginBottom: 10 }} >
-              <CreateComment
+              {/* <CreateComment
+                token={this.props.token}
+                restaurant={this.props.restaurant}
+              /> */}
+              <CreateNewComment 
                 token={this.props.token}
                 restaurant={this.props.restaurant}
               />
