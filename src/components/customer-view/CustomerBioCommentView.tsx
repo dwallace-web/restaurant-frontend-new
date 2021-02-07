@@ -3,6 +3,7 @@ import EditComment from './EditComment';
 import { Typography, Button, Card, CardContent } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles';
 import { Subtitles } from '@material-ui/icons';
+import EditCommentNew from './EditCommentNew';
 
 type CBCprops = {
   comment: {
@@ -33,7 +34,8 @@ class CustomerBioComment extends React.Component <CBCprops, CBCstate> {
         <CardContent>
           <Typography variant="subtitle2">{title}</Typography>
           <Typography >{body}</Typography>
-          <EditComment token={this.props.token} comment={this.props.comment} />
+          {/* <EditComment token={this.props.token} comment={this.props.comment} /> */}
+          <EditCommentNew token={this.props.token} comment={this.props.comment} />
           <Button onClick={this.props.deleteComment.bind(this, id)} variant="contained" color="secondary">
             Doubleclick to delete comment
           </Button>

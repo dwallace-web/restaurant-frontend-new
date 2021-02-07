@@ -31,10 +31,10 @@ class CustomerCardNew extends React.Component <CCNProps, CCNState> {
     fetch(
       `${API_URL}/comment/restaurant/${this.props.restaurant.id}`,
       {
-        headers: new Headers({
+        headers: {
           'Content-Type': 'application/json',
           Authorization: this.props.token,
-        }),
+        },
         method: 'GET',
       }
     )
@@ -69,7 +69,7 @@ class CustomerCardNew extends React.Component <CCNProps, CCNState> {
               <Grid item xs={12} sm={6}>
                 <Typography className="restaurantcategory">{category}</Typography>
               </Grid>
-              {/* <Grid item>
+              <Grid item>
                 <div className="restaurantcomments">
 
                   {this.state.comment.length > 1 ? (
@@ -95,7 +95,7 @@ class CustomerCardNew extends React.Component <CCNProps, CCNState> {
                       <br />
                     )}
                 </div>
-              </Grid> */}
+              </Grid>
             </Grid>
           </CardContent>
         </Card>

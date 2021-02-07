@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import CustomerBioPanel from './CustomerBioPanel';
 import { Typography, Grid } from '@material-ui/core'
 import API_URL from '../../helpers/environment';
+import CustomerBioPanelNew from './CustomerBioPanelNew';
 
 type BioProps = {
   token: string,
@@ -75,7 +76,13 @@ class CustomerBiography extends React.Component <BioProps , BioState> {
       <Grid alignItems="center" spacing={3}>
         <Typography variant="h4" align="center">My comments</Typography>
 
-        <CustomerBioPanel
+        {/* <CustomerBioPanel
+          comment={this.state.comment}
+          deleteComment={this.deleteComment}
+          token={this.props.token}
+        /> */}
+
+        <CustomerBioPanelNew 
           comment={this.state.comment}
           deleteComment={this.deleteComment}
           token={this.props.token}
