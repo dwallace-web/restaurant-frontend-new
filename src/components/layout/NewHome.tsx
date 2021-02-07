@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import AdministratorPanel from '../admin-only/AdministratorPanel';
 import AdminPanel from '../admin-only/AdminPanel';
 import Customers from '../customer-view/Customers';
+import CustomersNew from '../customer-view/CustomersNew';
 
 type HomeProps = {
 
@@ -56,7 +57,11 @@ class NewHome extends React.Component <HomeProps, HomeState> {
           /* <AdminPanel login={this.state.login} token={this.state.token} /> */
           <AdministratorPanel login={this.state.login} token={this.state.token} />
         ) : (
-            <Customers login={this.state.login} token={this.state.token} />
+            /* <Customers login={this.state.login} token={this.state.token} /> */
+
+            <CustomersNew 
+            login={this.state.login} token={this.state.token}
+            />
           )}
       </div>
     );
