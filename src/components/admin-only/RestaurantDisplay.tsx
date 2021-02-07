@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import NewRestaurantCard from './NewRestaurantCard';
-import RestaurantCard from './RestaurantCard';
 
 type RestaurantDisplayProps = {
   login: boolean,

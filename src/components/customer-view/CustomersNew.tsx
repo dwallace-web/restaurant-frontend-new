@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import CustomerBio from './CustomerBio';
-import CustomerRestaurants from './CustomerRestaurants';
 import { Typography, Grid, } from '@material-ui/core'
 import API_URL from '../../helpers/environment';
 import CustomerBiography from './CustomerBiography';
@@ -57,7 +55,6 @@ class CustomersNew extends  React.Component <CNProps, CNState> {
       <Grid container justify="center" spacing={5} >
 
         {this.props.login === true
-
           ?
 
           (

@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import AdministratorPanel from '../admin-only/AdministratorPanel';
-import AdminPanel from '../admin-only/AdminPanel';
-import Customers from '../customer-view/Customers';
 import CustomersNew from '../customer-view/CustomersNew';
 
 type HomeProps = {

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import CustomerCard from './CustomerCard';
 import { Grid, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import CustomerCardNew from './CustomerCardNew';

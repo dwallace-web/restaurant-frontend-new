@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import CustomerBioPanel from './CustomerBioPanel';
 import { Typography, Grid } from '@material-ui/core'
 import API_URL from '../../helpers/environment';
 import CustomerBioPanelNew from './CustomerBioPanelNew';

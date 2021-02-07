@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import CustomerComments from '../customer-view/CustomerComments';
-import CreateComment from '../user/CreateComment';
-import EditRestaurant from './EditRestaurant';
 import API_URL from '../../helpers/environment';
 import { Typography, Button, TextField, Card, CardContent } from '@material-ui/core'
 import EditRestaurantView from './EditRestaurantView';
@@ -41,7 +38,7 @@ class NewRestaurantCard extends React.Component <NewCardProps, NewCardState> {
     // this.getUserRestaurants();
     // console.log('fetch started');
     fetch(
-      `https://${API_URL}/comment/restaurant/${this.props.restaurant.id}`,
+      `${API_URL}/comment/restaurant/${this.props.restaurant.id}`,
       {
         headers: new Headers({
           'Content-Type': 'application/json',

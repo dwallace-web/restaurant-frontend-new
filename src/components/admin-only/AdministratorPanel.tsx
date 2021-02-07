@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
-import CustomerBio from '../customer-view/CustomerBio';
-import CreateRestaurant from './CreateRestaurant';
-import ViewRestaurants from './ViewRestaurants';
 import API_URL from '../../helpers/environment';
-import CustomerRestaurants from '../customer-view/CustomerRestaurants'
 import { Typography, } from '@material-ui/core'
 import RestaurantDisplay from './RestaurantDisplay';
 import CreateNewRestaurant from './CreateNewRestaurant';
@@ -76,7 +72,6 @@ class AdministratorPanel extends React.Component <AdminProps, AdminState> {
     return (
       <div style={{ marginBottom: 10 }} >
         <Typography>Restaurant Administration Panel </Typography>
-        {/* <CreateRestaurant login={this.props.login} token={this.props.token} /> */}
         <CreateNewRestaurant 
         login={this.props.login} token={this.props.token}
         />
@@ -89,7 +84,6 @@ class AdministratorPanel extends React.Component <AdminProps, AdminState> {
           data={this.state.data}
           deleteRestaurant={this.deleteRestaurant}
         />
-        {/* <CustomerBio login={this.props.login} token={this.props.token} /> */}
         <CustomerBiography 
           login={this.props.login} token={this.props.token} 
         />

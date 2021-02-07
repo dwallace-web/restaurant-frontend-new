@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import CustomerBioComment from './CustomerBioComment';
 import CustomerBioCommentView from './CustomerBioCommentView';
 
 type CBPNProps  = {

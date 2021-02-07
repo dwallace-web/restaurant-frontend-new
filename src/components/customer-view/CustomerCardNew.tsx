@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import CustomerComments from './CustomerComments';
-import CreateComment from '../user/CreateComment';
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import API_URL from '../../helpers/environment';
+import CustomerCommentView from './CustomerCommentView';
+import CreateNewComment from '../user/CreateNewComment';
 
 type CCNProps = {
   restaurant: any,
@@ -79,7 +79,11 @@ class CustomerCardNew extends React.Component <CCNProps, CCNState> {
                   ) : (
                       <div>
                         <Typography variant="h6" gutterBottom>Customer Comments</Typography>
-                        <CustomerComments
+                        {/* <CustomerComments
+                          token={this.props.token}
+                          comment={this.state.comment}
+                        /> */}
+                        <CustomerCommentView
                           token={this.props.token}
                           comment={this.state.comment}
                         />
@@ -87,10 +91,12 @@ class CustomerCardNew extends React.Component <CCNProps, CCNState> {
                     )}
 
                   {this.props.login === true ? (
-                    <CreateComment
-                      token={this.props.token}
-                      restaurant={this.props.restaurant}
-                    />
+                    // <CreateComment
+                    //   token={this.props.token}
+                    //   restaurant={this.props.restaurant}
+                    // />
+                    <CreateNewComment token={this.props.token}
+                    restaurant={this.props.restaurant} />
                   ) : (
                       <br />
                     )}
