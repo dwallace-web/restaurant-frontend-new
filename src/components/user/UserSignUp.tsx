@@ -10,6 +10,8 @@ import {
 } from "react-router-dom";
 import { Typography, TextField, Button } from '@material-ui/core'
 import API_URL from '../../helpers/environment';
+import TagManager from 'react-gtm-module';
+
 
 type SUNProps = {
 
@@ -91,9 +93,20 @@ class SignUpNew extends React.Component <SUNProps, SUNState> {
             })
           );
           this.setState({ login: true })
+          
+          TagManager.dataLayer({
+            dataLayer: {
+              event: 'signUp',
+            }
+          })
 
           console.log('done');
         } else {
+          TagManager.dataLayer({
+            dataLayer: {
+              event: 'failed',
+            }
+          })
           throw Error(data.error);
         }
       })

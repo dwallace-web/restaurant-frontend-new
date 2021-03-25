@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import API_URL from '../../helpers/environment';
 import { Typography, TextField, Button } from '@material-ui/core'
+import TagManager from 'react-gtm-module';
 
 
 type USIProps = {
@@ -25,7 +26,7 @@ type USIState = {
 class UserSignIn extends React.Component <USIProps, USIState> {
   //this will be a class component
 
-  constructor(props: USIProps) {
+    constructor(props: USIProps) {
     super(props);
     this.state = {
       active: false,
@@ -73,7 +74,17 @@ class UserSignIn extends React.Component <USIProps, USIState> {
 
           );
           this.setState({ active: true })
+          TagManager.dataLayer({
+            dataLayer: {
+              event: 'signIn',
+            }
+          })
         } else {
+          TagManager.dataLayer({
+            dataLayer: {
+              event: 'failed',
+            }
+          })
           throw Error(data.error);
         }
       })
